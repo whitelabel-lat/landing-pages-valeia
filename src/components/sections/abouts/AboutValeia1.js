@@ -4,6 +4,7 @@ import React from "react";
 import TiltWrapper from "@/components/shared/wrappers/TiltWrapper";
 import useIsTrue from "@/hooks/useIsTrue";
 import Counter from "../sub-section/Counter";
+import Image from "next/image";
 
 const AboutValeia1 = ({
   children,
@@ -30,6 +31,10 @@ const AboutValeia1 = ({
     return fullImageUrl;
   });
 
+  console.log(fullImageUrls,'fullImageUrls');
+  
+
+
   const [
     fullImageUrl0,
     fullImageUrl1,
@@ -50,25 +55,33 @@ const AboutValeia1 = ({
           >
             <TiltWrapper>
               <div className="tilt">
-                <img
-                  className="md:ml-[70px]"
+                <Image
+                  className="md:ml-[70px] h-auto"
                   src={image ? image : fullImageUrl0}
                   alt=""
+                  width={465} // Ajusta según el tamaño real
+                  height={300} // Ajusta según el tamaño real
                 />
-                <img
-                  className="absolute right-0 sm:right-[-17px] md:right-36 lg:right-4 bottom-[91px] md:bottom-0"
+                <Image
+                  className="absolute right-0 sm:right-[-17px] md:right-36 lg:right-4 bottom-[91px] md:bottom-0  h-auto"
                   src={isHome9 || isHome9Dark ? fullImageUrl4 : fullImageUrl1}
                   alt=""
+                  width={200} // Ajusta según el tamaño real
+                  height={130} // Ajusta según el tamaño real
                 />
-                <img
-                  className="absolute top-[-18px] left-[30px] animate-move-hor z-[-1]"
+                <Image
+                  className="absolute top-[-18px] left-[30px] animate-move-hor z-[-1]   h-auto"
                   src={fullImageUrl2}
                   alt=""
+                  width={150} // Ajusta según el tamaño real
+                  height={70} // Ajusta según el tamaño real
                 />
-                <img
-                  className="absolute top-[30%] left-0 z-[-1]"
+                <Image
+                  className="absolute top-[30%] left-0 z-[-1]  h-auto"
                   src={fullImageUrl3}
                   alt=""
+                  width={465} // Ajusta según el tamaño real
+                  height={300} // Ajusta según el tamaño real
                 />
               </div>
             </TiltWrapper>
