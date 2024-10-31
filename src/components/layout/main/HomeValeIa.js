@@ -14,8 +14,6 @@ import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
 const HomeValeia = () => {
   const data = useGetStaticProps();
-  console.log(data,'data <---');
-  
 
   const getSection = (index) => {
     return Array.isArray(data.topSections) && data.topSections.length > index

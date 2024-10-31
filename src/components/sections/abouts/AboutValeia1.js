@@ -31,10 +31,6 @@ const AboutValeia1 = ({
     return fullImageUrl;
   });
 
-  console.log(fullImageUrls,'fullImageUrls');
-  
-
-
   const [
     fullImageUrl0,
     fullImageUrl1,
