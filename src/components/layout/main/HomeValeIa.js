@@ -21,16 +21,20 @@ const HomeValeia = () => {
       : {};
   };
 
-  const topSectionData = getSection(7);
-  const sectionFeaturesMarques = getSection(14);
-  const sectionPopularSubjects = getSection(4);
+  console.log(data,'data <----');
+  
+
+  const topSectionData = getSection(8);
+  const sectionFeaturesMarques = getSection(15);
+  const sectionPopularSubjects = getSection(5);
   const sectionAboutValeia2 = getSection(17);
-  const sectionRegistrationValeia = getSection(22);
-  const sectionPricingPlans = getSection(19);
+  const sectionRegistrationValeia = getSection(23);
+  const sectionPricingPlans = getSection(20);
   const sectionTestimonials = getSection(0);
-  const sectionBrands = getSection(25);
-  const sectionAboutValeia1 = getSection(16);
-  const sectionFees = getSection(20);
+  const sectionBrands = getSection(26);
+  const sectionAboutValeia1 = getSection(17);
+  const sectionFees = getSection(21);
+  
 
   return (
     <>

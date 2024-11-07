@@ -8,6 +8,7 @@ import NavItems2 from "./NavItems2";
 import NavItems from "./NavItems";
 import NavbarTop from "./NavbarTop";
 import NavbarRight from "./NavbarRight";
+import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 const Navbar = () => {
   const isHome1 = useIsTrue("/");
   const isHome1Dark = useIsTrue("/home-1-dark");
@@ -19,6 +20,19 @@ const Navbar = () => {
   const isHome4Dark = useIsTrue("/home-4-dark");
   const isHome5 = useIsTrue("/home-5");
   const isHome5Dark = useIsTrue("/home-5-dark");
+  const data = useGetStaticProps();
+
+  
+  const getSection = (index) => {
+    return Array.isArray(data.topSections) && data.topSections.length > index
+      ? data.topSections[index]
+      : {};
+  };
+
+  const iconValeia = getSection(2);
+
+  console.log(iconValeia);
+  
 
   return (
     <div
@@ -52,7 +66,7 @@ const Navbar = () => {
           )}
           <div className="grid grid-cols-2 lg:grid-cols-12 items-center gap-15px">
             {/* navbar left */}
-            <NavbarLogo />
+            <NavbarLogo {...iconValeia}/>
             {/* Main menu */}
             {/* {isHome2Dark ? <NavItems2 /> : <NavItems />} */}
             {isHomeValeiaDark ? <NavItems2 /> : <NavItems />}
