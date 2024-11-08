@@ -21,9 +21,6 @@ const HomeValeia = () => {
       : {};
   };
 
-  console.log(data,'data <----');
-  
-
   const topSectionData = getSection(8);
   const sectionFeaturesMarques = getSection(15);
   const sectionPopularSubjects = getSection(5);
