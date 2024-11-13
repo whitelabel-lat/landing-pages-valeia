@@ -97,7 +97,7 @@ const AboutValeia1 = ({
             <ul className="space-y-[14px]">
               {listInfo.map((text, index) => {
                 return (
-                  <li id={index} className="flex items-center group">
+                  <li id={index} key={index} className="flex items-center group">
                     <i className="icofont-check px-2 py-2 text-primaryColor bg-whitegrey3 bg-opacity-40 group-hover:bg-primaryColor group-hover:text-white group-hover:opacity-100 mr-15px dark:bg-whitegrey1-dark"></i>
                     <p className="text-sm md:text-base font-medium text-blackColor dark:text-blackColor-dark">
                       {text}
