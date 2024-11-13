@@ -1,7 +1,6 @@
 import HeadingPrimary from "@/components/shared/headings/HeadingPrimary";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 const Brands = ({ title, icons = [] }) => {
   return (
     <section className="bg-lightGrey10 dark:bg-lightGrey10-dark">
@@ -28,15 +27,7 @@ const Brands = ({ title, icons = [] }) => {
                   href="#"
                   className="pt-25px pb-45px text-center w-full flex justify-center"
                 >
-                  <Image 
-                    className="h-auto"
-                    src={fullImageUrl}
-                    width={160} // Ajusta según el tamaño real
-                    height={50} // Ajusta según el tamaño real
-                    alt=""
-                  />
-
-               
+                  <img alt="" src={fullImageUrl}></img>
                   {/* <Image src={fullImageUrl} alt="" /> */}
                 </Link>
               </div>

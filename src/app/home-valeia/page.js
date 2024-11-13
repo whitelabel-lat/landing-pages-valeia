@@ -14,7 +14,6 @@ const Home_Valeia = async () => {
   return (
     <PageWrapper>
       <main>
-        {/* <Home2 /> */}
         <HomeValeia />
         <ThemeController />
       </main>

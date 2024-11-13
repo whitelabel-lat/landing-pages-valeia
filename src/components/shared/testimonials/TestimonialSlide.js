@@ -9,13 +9,9 @@ const TestimonialSlide = ({ testimonial }) => {
         <div className="flex justify-between items-center mb-15px lg:mb-30px">
           <div className="flex items-center gap-5">
             <div className="w-58px h-58px rounded-full">
-              <Image
-                src={image}
-                alt=""
-                className="w-full h-auto rounded-full"
-                width={59} // Proporciona el ancho
-                height={58} // Proporciona la altura
-              />
+
+              <img src={image} alt="" className="w-full rounded-full"></img>
+
             </div>
 
             <div>
