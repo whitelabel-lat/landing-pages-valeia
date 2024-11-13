@@ -5,9 +5,31 @@ import registrationImage2 from "@/assets/images/register/register__2.png";
 import registrationImage3 from "@/assets/images/register/register__3.png";
 
 import PopupVideoValeia from "@/components/shared/popup/PopupVideoValeia";
-import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 
-const RegistrationValeia = ({ info, title }) => {
+const RegistrationValeia = ({ 
+  title,
+  info,
+  chatTitle1,
+  chatTitle2,
+  chatInput1,
+  chatInput2,
+  images=[],
+  linkVideo
+ }) => {
+
+  const fullImageUrls = images.map((image) => {
+    const imageUrl = image.fields?.file?.url || "";
+    const fullImageUrl = imageUrl.startsWith("//")
+      ? `https:${imageUrl}`
+      : imageUrl;
+    return fullImageUrl;
+  });
+
+  const [
+    fullImageUrl0,
+    fullImageUrl1,
+    fullImageUrl2
+  ] = fullImageUrls;
 
   return (
     <section className="bg-register bg-cover bg-center bg-no-repeat lg:mb-150px">
@@ -44,7 +66,7 @@ const RegistrationValeia = ({ info, title }) => {
                   {title}
                 </h3>
                 <div className="flex gap-x-5 items-center">
-                  <PopupVideoValeia />
+                  <PopupVideoValeia linkVideo={linkVideo}/>
 
                   <div>
                     <p className="text-size-15 md:text-[22px] lg:text-lg 2xl:text-[22px] leading-6 md:leading-9 lg:leading-8 2xl:leading-9 font-semibold text-white">
@@ -55,52 +77,52 @@ const RegistrationValeia = ({ info, title }) => {
               </div>
             </div>
             {/* sbject right  */}
+
+           
             <div className="overflow-visible lg:col-start-8 lg:col-span-5 relative z-1 lg:-mb-150px">
-              <form
-                className="p-35px pt-10 bg-lightGrey10 dark:bg-lightGrey10-dark rounded shadow-experience"
-                data-aos="fade-up"
-              >
-                <h3 className="text-xl text-blackColor dark:text-blackColor-dark font-semibold mb-5 font-inter">
-                  Fill Your Registration
-                </h3>
-
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-15px py-3 bg-lightGrey8 text-base mb-25px focus:outline-none"
+              <div className="relative w-[470px] h-[581px]">
+                <img
+                  className="absolute left-0 bottom-0 w-full h-full object-cover"
+                  src={fullImageUrl0}
+                  alt="Reemplazo del formulario"
                 />
-
-                <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-x-30px">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="w-full px-15px py-3 bg-lightGrey8 text-base mb-25px focus:outline-none"
-                  />
-
-                  <input
-                    type="text"
-                    placeholder="Phone"
-                    className="w-full px-15px py-3 bg-lightGrey8 text-base mb-25px focus:outline-none"
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Address"
-                  className="w-full px-15px py-3 bg-lightGrey8 text-base mb-25px focus:outline-none"
-                />
-
-                <textarea
-                  placeholder="Comment"
-                  className="w-full px-15px pb-3 pt-5 bg-lightGrey8 text-base mb-25px h-[155px] placeholder:text-blackColor"
-                  cols="30"
-                  rows="10"
-                />
+              </div>
+              <div className="w-300px md:w-342px rounded-lg absolute top-6 rihgt-0 md:top-[80px] md:right-[9px] lg:right-[-26px] 2xl:right-[-166px] bg-whiteColor p-10px flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
                 <div>
-                  <ButtonPrimary type="submit" arrow={true}>
-                    Sign Up
-                  </ButtonPrimary>
+                  <img
+                    src={fullImageUrl1}
+                    className="w-55px h-55px rounded block"
+                    alt=""
+                    placeholder="blur"
+                  />
                 </div>
-              </form>
+                <div>
+                  <p className="text-size-15 font-semibold text-greencolor3">
+                    {chatTitle1}
+                  </p>
+                  <p className="text-sm text-contentColor dark:text-contentColor-dark">
+                    {chatInput1}
+                  </p>
+                </div>
+              </div>
+              <div className="w-[300px] md:w-[342px] absolute bottom-12 rounded-lg left-0 md:bottom-[70px] md:left-[9px] lg:left-[-26px] 2xl:left-[-166px] bg-whiteColor p-[10px] flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
+                <div>
+                  <img
+                    src={fullImageUrl2}
+                    className="w-[55px] h-[55px] rounded block"
+                    alt=""
+                    placeholder="blur"
+                  />
+                </div>
+                <div>
+                  <p className="text-[15px] font-semibold text-greencolor3">
+                    {chatTitle2}
+                  </p>
+                  <p className="text-sm text-contentColor dark:text-contentColor-dark">
+                    {chatInput2}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,5 +130,4 @@ const RegistrationValeia = ({ info, title }) => {
     </section>
   );
 };
-
 export default RegistrationValeia;
