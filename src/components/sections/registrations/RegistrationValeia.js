@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import registrationImage1 from "@/assets/images/register/register__1.png";
 import registrationImage2 from "@/assets/images/register/register__2.png";
@@ -37,17 +36,17 @@ const RegistrationValeia = ({
       <div className="overlay bg-blue bg-opacity-90 py-20 lg:pt-[90px] lg:pb-0 relative z-0">
         {/* animate icons  */}
         <div>
-          <Image
+          <img
             className="absolute top-0 left-0 lg:left-[8%] 2xl:top-10 animate-move-hor block z--1"
             src={registrationImage1}
             alt=""
           />
-          <Image
+          <img
             className="absolute top-1/2 left-3/4 md:left-2/3 lg:left-1/2 2xl:left-[8%] md:top animate-spin-slow block z--1"
             src={registrationImage2}
             alt=""
           />
-          <Image
+          <img
             className="absolute top-20 lg:top-3/4 md:top-14 right-20 md:right-20 lg:right-[90%] animate-move-var block z--1"
             src={registrationImage3}
             alt=""

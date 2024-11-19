@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import React from "react";
 
 const CounterItem = ({ item }) => {
@@ -7,7 +7,7 @@ const CounterItem = ({ item }) => {
     <div className="basis-full sm:basis-1/2 lg:basis-1/4" data-aos="fade-up">
       <div className="flex gap-4">
         <div>
-          <Image src={image} alt="" />
+          <img src={image} alt="" />
         </div>
         <div>
           <h1 className="text-size-34 leading-[1.1] text-blackColor font-bold  dark:text-blackColor-dark">

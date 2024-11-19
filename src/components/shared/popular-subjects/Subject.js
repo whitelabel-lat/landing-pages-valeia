@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -20,7 +19,7 @@ const Subject = ({ subject, type, textLink }) => {
           <div className="-translate-y-2 flex justify-between overflow-hidden mb-0 md:mb-1 lg:mb-3">
             {image ? (
               <div className="relative w-15 h-15">
-                <Image
+                <img
                   loading="lazy"
                   src={image}
                   alt=""

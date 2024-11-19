@@ -1,6 +1,4 @@
-import Image from "next/image";
 import React from "react";
-import logoImage from "@/assets/images/logo/logo_2.png";
 import useIsSecondary from "@/hooks/useIsSecondary";
 const CopyRight = ({ iconValeia = [] }) => {
   const { isSecondary } = useIsSecondary();
@@ -54,11 +52,9 @@ const CopyRight = ({ iconValeia = [] }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-30px pt-10 items-center">
           <div className="lg:col-start-1 lg:col-span-3">
             <a href="index.html">
-              <Image
+              <img
                 src={icon}
                 alt=""
-                width={200}
-                height={70}
               />
             </a>
           </div>

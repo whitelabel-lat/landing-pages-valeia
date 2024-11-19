@@ -1,4 +1,3 @@
-import Image from "next/image";
 import flagImage1 from "@/assets/images/icon/flag1.webp";
 import flagImage2 from "@/assets/images/icon/flag2.webp";
 import flagImage3 from "@/assets/images/icon/flag3.webp";
@@ -13,7 +12,7 @@ const NavbarTop = () => {
         <ul className="flex items-center nav-list">
           <li className="relative group">
             <button className="text-contentColor dark:text-contentColor-dark pr-10px flex items-center">
-              <Image
+              <img
                 src={flagImage1}
                 alt=""
                 className="w-6 h-6 mr-1 rounded-lg2"
@@ -30,11 +29,10 @@ const NavbarTop = () => {
                       href="#"
                       className="flex items-center text-size-13 text-blackColor p-10px transition duration-300 hover:bg-darkdeep4 hover:text-whiteColor dark:text-blackColor-dark dark:hover:text-whiteColor-dark dark:hover:bg-darkdeep4"
                     >
-                      <Image
+                      <img
                         src={flagImage2}
                         alt=""
-                        className="w-18px h-18px rounded-lg mr-10px"
-                      />
+                        className="w-18px h-18px rounded-lg mr-10px"/>
                       FR
                     </a>
                   </li>
@@ -43,7 +41,7 @@ const NavbarTop = () => {
                       href="#"
                       className="flex items-center text-size-13 text-blackColor p-10px transition duration-300 hover:bg-darkdeep4 hover:text-whiteColor dark:text-blackColor-dark dark:hover:text-whiteColor-dark dark:hover:bg-darkdeep4"
                     >
-                      <Image
+                      <img
                         src={flagImage3}
                         alt=""
                         className="w-18px h-18px rounded-lg mr-10px"

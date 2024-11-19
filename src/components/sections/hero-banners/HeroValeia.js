@@ -8,12 +8,12 @@ const {
 const { default: Link } = require("next/link");
 
 const HeroValeia = (props) => {
-  
-  const fullImageUrls = props.listImage?.map((image) => {
-    const imageUrl = image.fields?.file?.url || "";
-    return imageUrl.startsWith("//") ? `https:${imageUrl}` : imageUrl;
-  }) || [];
-  
+  const fullImageUrls =
+    props.listImage?.map((image) => {
+      const imageUrl = image.fields?.file?.url || "";
+      return imageUrl.startsWith("//") ? `https:${imageUrl}` : imageUrl;
+    }) || [];
+
   const fullImageUrl0 = fullImageUrls[0] || "";
   const fullImageUrl1 = fullImageUrls[1] || "";
   const fullImageUrl2 = fullImageUrls[2] || "";
@@ -28,7 +28,6 @@ const HeroValeia = (props) => {
   const fullImageUrl11 = fullImageUrls[11] || "";
   const fullImageUrl12 = fullImageUrls[12] || "";
 
-  
   return (
     <section data-aos="fade-up">
       <div className="overflow-hidden relative z-0">
@@ -105,17 +104,16 @@ const HeroValeia = (props) => {
                       placeholder="blur"
                     />
                   </div>
-                  <div className="w-300px md:w-342px rounded-lg absolute top-6 rihgt-0 md:top-[41px] md:right-[9px] lg:right-[-26px] 2xl:right-[-166px] bg-whiteColor p-10px flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
-                    <div>
+                  <div className="w-[300px] md:w-[342px] rounded-lg absolute top-6 right-0 md:top-[41px] md:right-[9px] lg:right-[-26px] 2xl:right-[-166px] bg-whiteColor p-4 flex items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
+                    <div className="flex-shrink-0">
                       <img
                         src={fullImageUrl12}
-                        className="w-55px h-55px rounded block"
+                        className="w-16 h-16 rounded-full object-cover"
                         alt=""
-                        placeholder="blur"
                       />
                     </div>
-                    <div>
-                      <p className="text-size-15 font-semibold text-greencolor3">
+                    <div className="ml-4 flex-grow">
+                      <p className="text-sm font-semibold text-greencolor3">
                         {props.chatTitle1}
                       </p>
                       <p className="text-sm text-contentColor dark:text-contentColor-dark">
@@ -125,8 +123,8 @@ const HeroValeia = (props) => {
                   </div>
                   <div className="w-[300px] md:w-[342px] absolute bottom-12 rounded-lg left-0 md:bottom-[-41px] md:left-[9px] lg:left-[-26px] 2xl:left-[-166px] bg-whiteColor p-[10px] flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
                     <div>
-                      <Image
-                        src={aboutImage16}
+                      <img
+                        src={fullImageUrl12}
                         className="w-[55px] h-[55px] rounded block"
                         alt=""
                         placeholder="blur"

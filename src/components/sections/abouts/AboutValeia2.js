@@ -33,19 +33,15 @@ const AboutValeia2 = ({
           <div data-aos="fade-up">
             <TiltWrapper>
               <div className="tilt relative">
-                <Image
+                <img
                   className="absolute left-0 top-0 lg:top-4 right-0 mx-auto"
                   src={fullImageUrl0}
                   alt=""
-                  width={465} // Ajusta según el tamaño real
-                  height={300} // Ajusta según el tamaño real
                 />
-                <Image
+                <img
                   className="w-full"
                   src={fullImageUrl1}
                   alt=""
-                  width={400} // Ajusta según el tamaño real
-                  height={300} // Ajusta según el tamaño real
                 />
               </div>
             </TiltWrapper>

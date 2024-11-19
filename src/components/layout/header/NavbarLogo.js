@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 const NavbarLogo = ({ iconValeia=[] }) => {
@@ -16,12 +15,9 @@ const NavbarLogo = ({ iconValeia=[] }) => {
   return (
     <div className="lg:col-start-1 lg:col-span-2">
       <Link href="/" className="w-logo-sm lg:w-logo-lg ">
-        <Image
-          prioriy="fasle"
+        <img
           src={icon}
           alt="logo"
-          width={150} // Ajusta según el tamaño real
-          height={70} // Ajusta según el tamaño real
           className="w-full py-2"
         />
       </Link>

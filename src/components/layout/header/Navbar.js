@@ -1,14 +1,12 @@
 "use client";
-import { usePathname } from "next/navigation";
-
 import useIsTrue from "@/hooks/useIsTrue";
-
 import NavbarLogo from "./NavbarLogo";
 import NavItems2 from "./NavItems2";
 import NavItems from "./NavItems";
 import NavbarTop from "./NavbarTop";
 import NavbarRight from "./NavbarRight";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
+
 const Navbar = () => {
   const isHome1 = useIsTrue("/");
   const isHome1Dark = useIsTrue("/home-1-dark");
