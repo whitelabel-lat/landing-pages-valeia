@@ -51,33 +51,29 @@ const AboutValeia1 = ({
           >
             <TiltWrapper>
               <div className="tilt">
-                <Image
+                <img
                   className="md:ml-[70px] h-auto"
                   src={image ? image : fullImageUrl0}
                   alt=""
-                  width={465} // Ajusta según el tamaño real
-                  height={300} // Ajusta según el tamaño real
+                 
                 />
-                <Image
+                <img
                   className="absolute right-0 sm:right-[-17px] md:right-36 lg:right-4 bottom-[91px] md:bottom-0  h-auto"
                   src={isHome9 || isHome9Dark ? fullImageUrl4 : fullImageUrl1}
                   alt=""
-                  width={200} // Ajusta según el tamaño real
-                  height={130} // Ajusta según el tamaño real
+                 
                 />
-                <Image
+                <img
                   className="absolute top-[-18px] left-[30px] animate-move-hor z-[-1]   h-auto"
                   src={fullImageUrl2}
                   alt=""
-                  width={150} // Ajusta según el tamaño real
-                  height={70} // Ajusta según el tamaño real
+                 
                 />
-                <Image
+                <img
                   className="absolute top-[30%] left-0 z-[-1]  h-auto"
                   src={fullImageUrl3}
                   alt=""
-                  width={465} // Ajusta según el tamaño real
-                  height={300} // Ajusta según el tamaño real
+                
                 />
               </div>
             </TiltWrapper>

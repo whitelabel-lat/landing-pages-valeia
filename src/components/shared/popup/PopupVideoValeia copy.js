@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect } from "react";
 import videoImage from "@/assets/images/icon/video.png";
 import videoModal from "@/libs/videoModal";
@@ -15,7 +14,7 @@ const PopupVideoValeia = () => {
       >
         <span className="animate-buble absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block w-[180px] h-[180px] border-secondaryColor rounded-full"></span>
         <span className="animate-buble2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block w-[180px] h-[180px] border-secondaryColor rounded-full"></span>
-        <Image src={videoImage} alt="" />
+        <img src={videoImage} alt="" />
       </button>
     </div>
   );

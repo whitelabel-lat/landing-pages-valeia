@@ -1,9 +1,8 @@
-import Image from "next/image";
 import herobannerImage3 from "@/assets/images/herobanner/herobanner__3.png";
 
 const BalbImage = ({ type }) => {
   return (
-    <Image
+    <img
       className={`absolute ${
         type === "secondary"
           ? "right-[30px] top-0 md:right-10 lg:right-[575px] 2xl:top-20"

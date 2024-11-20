@@ -1,7 +1,5 @@
-import accordions from "@/libs/accordions";
 import React from "react";
 import MobileAccordion from "./MobileAccordion";
-import Image from "next/image";
 import megamenu2 from "@/assets/images/mega/mega_menu_1.png";
 const AccordionCourses = () => {
   const items = [
@@ -122,7 +120,7 @@ const AccordionCourses = () => {
   return (
     <MobileAccordion items={items}>
       <a href="#" className="pl-15px pt-3 pb-7px">
-        <Image className="w-full" src={megamenu2} alt="" placeholder="blur" />
+        <img className="w-full" src={megamenu2} alt="" placeholder="blur" />
       </a>
     </MobileAccordion>
   );

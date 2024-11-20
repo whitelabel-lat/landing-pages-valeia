@@ -1,12 +1,11 @@
 import errorImage1 from "@/assets/images/icon/error__1.png";
-import Image from "next/image";
 import Link from "next/link";
 const Error1 = () => {
   return (
     <section>
       <div className="container py-100px">
         <div className="w-full lg:max-w-770px lg:mx-auto text-center">
-          <Image
+          <img
             src={errorImage1}
             alt=""
             className="w-full mb-60px"

@@ -1,9 +1,8 @@
-import Image from "next/image";
 import React from "react";
 import herobannerImage1 from "@/assets/images/herobanner/herobanner__1.png";
 const BookImage = ({ type }) => {
   return (
-    <Image
+    <img
       className={`absolute ${
         type === "secondary"
           ? "left-0 bottom-0 md:left-[14px] lg:left-[50px] lg:bottom-[21px] 2xl:left-[165px] 2xl:bottom-[60px]"

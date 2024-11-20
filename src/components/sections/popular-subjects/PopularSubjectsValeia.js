@@ -1,7 +1,6 @@
 "use client";
 import Subjects from "@/components/shared/popular-subjects/Subjects";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import shapImage from "@/assets/images/service/service__shape__1.png";
 import shapBgImage from "@/assets/images/service/service__shape__bg__1.png";
 
@@ -368,7 +367,7 @@ const PopularSubjectsValeia = (props) => {
           >
             <div className="relative">
               <div>
-                <Image
+                <img
                   className="absolute bottom-9 lg:bottom-[-50px] right-[50px] animate-move-hor"
                   src={shapImage}
                   alt=""
@@ -401,7 +400,7 @@ const PopularSubjectsValeia = (props) => {
           <div className="relative z-0 overflow-visible">
             {/* animted area */}
             <div data-aos="fade-up">
-              <Image
+              <img
                 className="absolute sm:block xl:left-1/4 z-[-1] top-6 animate-move-var"
                 src={shapBgImage}
                 alt=""

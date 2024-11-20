@@ -1,5 +1,4 @@
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
-import Image from "next/image";
 
 const PricingPlan = ({ plan }) => {
   const { name, image, price, moto, features } = plan;
@@ -20,12 +19,10 @@ const PricingPlan = ({ plan }) => {
             </span>
           </h6>
           <p className="text-blackColor dark:text-blackColor-dark">{moto}</p>
-          <Image
+          <img
             className="absolute top-0 right-0 -translate-y-[30px]"
             src={image}
             alt="Descripción de la imagen"
-            width={200} // Ajusta según sea necesario
-            height={200} // Ajusta según sea necesario
           />
         </div>
         {/* plan feature */}
