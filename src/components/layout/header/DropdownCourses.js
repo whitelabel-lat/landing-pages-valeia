@@ -121,9 +121,7 @@ const DropdownCourses = () => {
 
         {/* dropdown banner */}
         <div>
-          <Image
-            prioriy="false"
-            placeholder="blur"
+          <img         
             src={megaMenu1}
             alt="Mega Menu"
             className="w-full rounded-standard"

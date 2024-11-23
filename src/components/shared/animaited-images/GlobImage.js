@@ -1,8 +1,7 @@
-import Image from "next/image";
 import herobannerImage2 from "@/assets/images/herobanner/herobanner__2.png";
 const GlobImage = ({ type }) => {
   return (
-    <Image
+    <img
       className={`absolute ${
         type === "secondary"
           ? "left-0 top-0 lg:left-[50px] lg:top-[100px]"

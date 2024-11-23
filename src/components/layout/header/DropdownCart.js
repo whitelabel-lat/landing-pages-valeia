@@ -58,11 +58,9 @@ const DropdownCart = ({ isHeaderTop }) => {
                         isCourse ? "courses" : "ecommerce/products"
                       }/${id}`}
                     >
-                      <Image
-                        prioriy="false"
-                        placeholder="blur"
+                      <img
                         src={image}
-                        alt="photo"
+                        alt=""
                         className="w-card-img py-[3px]"
                       />
                     </Link>

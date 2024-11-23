@@ -1,5 +1,3 @@
-import useIsSecondary from "@/hooks/useIsSecondary";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,11 +11,10 @@ const FooterRecentPost = ({ post }) => {
         className="flex items-center gap-3 group cursor-pointer"
       >
         <div>
-          <Image
+          <img
             src={image}
             alt=""
             className="w-61px h-54px"
-            placeholder="blur"
           />
         </div>
         <div>

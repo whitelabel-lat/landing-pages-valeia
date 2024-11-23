@@ -27,8 +27,7 @@ const Brands = ({ title, icons = [] }) => {
                   href="#"
                   className="pt-25px pb-45px text-center w-full flex justify-center"
                 >
-                  <img alt="" src={fullImageUrl}></img>
-                  {/* <Image src={fullImageUrl} alt="" /> */}
+                  <img alt="" src={fullImageUrl} />
                 </Link>
               </div>
             );
