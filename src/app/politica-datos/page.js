@@ -1,12 +1,8 @@
-import Head from 'next/head';
+"use client";
 
-export default function Terminos() {
+const Terminos = () => {
   return (
     <>
-      <Head>
-        <title>Términos y Condiciones - Vale.ia</title>
-        <meta name="description" content="Términos y condiciones para el uso de Vale.ia" />
-      </Head>
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-6">Términos y Condiciones de Vale.ia</h1>
         <section className="mb-6">
@@ -47,5 +43,7 @@ export default function Terminos() {
     </>
   );
 }
+
+export default Terminos;
 
 
