@@ -37,6 +37,28 @@ export default function RootLayout({ children }) {
       <body
         className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0  ${inter.className}`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : '1721201065327660',
+                  xfbml      : true,
+                  version    : 'v21.0'
+                });
+                FB.AppEvents.logPageView();
+              };
+
+              (function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "https://connect.facebook.net/en_US/sdk.js";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+            `,
+          }}
+        />
         <PreloaderPrimary />
         {children}
 
@@ -44,6 +66,12 @@ export default function RootLayout({ children }) {
         <div>
           <FixedShadow />
           <FixedShadow align={"right"} />
+          <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
         </div>
       </body>
     </html>
