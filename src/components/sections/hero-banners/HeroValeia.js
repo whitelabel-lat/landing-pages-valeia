@@ -59,7 +59,7 @@ const HeroValeia = (props) => {
             {/* banner Left */}
             <div className="lg:col-start-1 lg:col-span-7" data-aos="fade-up">
               <HeadingLg>{props.heroPrimaryText}</HeadingLg>
-              <p className="text-size-15 lg:text-base 2xl:text-lg text-contentColor mb-5 2xl:mb-30px dark:text-contentColor-dark">
+              <p className="text-size-15 lg:text-base 2xl:text-lg text-primaryColor mb-5 2xl:mb-30px dark:text-contentColor-dark">
                 {props.heroSubPrimaryText}
               </p>
               <div>
