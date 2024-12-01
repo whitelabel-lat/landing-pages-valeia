@@ -1,7 +1,7 @@
 import Feature2 from "@/components/shared/features/Feature2";
 
 const FeaturesMarque = (props) => {
-  const { featuresTexts } = props;
+  const { featuresTexts, logoImages } = props;
 
   const features = Array.isArray(featuresTexts) ? featuresTexts : [];
 
