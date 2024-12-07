@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
   const {
     pageName,
     seoTitle,
+    seoDescription,
     canonicalUrl,
     featuredImage,
     hideFromSearchEngines,
@@ -46,9 +47,9 @@ export default function RootLayout({ children }) {
     <html lang="es" className={`${hind.variable}`}>
       <head>
         <title>{seoTitle}</title>
-        <meta
+       <meta
           name="description"
-          content={` ${pageName || "Vale.ia asistencia artificial para vender más"}`}
+          content={seoDescription ||  "Vale.ia asistencia artificial para vender más"}
         />
         {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
         {featuredImage && (

@@ -7,7 +7,7 @@ export function useGetStaticProps() {
 
   const [data, setData] = useState({
     seoTitle: "",
-    pageName: "",
+    seoDescription: "",
     canonicalUrl: "",
     featuredImage: "",
     hideFromSearchEngines: false,
@@ -35,14 +35,17 @@ export function useGetStaticProps() {
        console.log(entry)
         const sectionData = {
           seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
-          pageName: entry.pageName || "Vale.ia",
+          seoDescription: entry.seo?.fields.seoDescription,
           canonicalUrl: entry.seo?.fields.canonicalUrl || "",
-          featuredImage: entry.seo?.featuredImage?.fields?.file?.url || "",
-          hideFromSearchEngines: entry.seo?.hideFromSearchEngines || false,
-          excludeLinksFromRankings: entry.seo?.excludeLinksFromRankings || false,
-          topSections: entryAll?.includes?.Entry?.map((section) => ({
-            ...section.fields,
-          })) || [], // Si no existe, devuelve un array vacío
+          featuredImage: entry.seo?.fields.featuredImage?.fields?.file?.url || "",
+          hideFromSearchEngines: entry.seo?.fields.hidePageFromSearchEnginesNoindex || false,
+          excludeLinksFromRankings: entry.seo?.fields.excludeLinksFromSearchRankingsNofollow || false,
+           topSections: entry.topSection.map((section) => { 
+            return {fields: section.fields,
+              sys: section.sys,
+            }
+          }
+          ), // Si no existe, devuelve un array vacío
         };
 
         setData(sectionData);
