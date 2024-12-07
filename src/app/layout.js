@@ -29,12 +29,10 @@ export const hind = Hind({
 });
 
 export default function RootLayout({ children }) {
-  const {pageName, internalName, slug, seoTitle} = useGetStaticProps();
-
-
+  const {pageName, seoTitle} = useGetStaticProps();
 
   return (
-    <html lang="en" className={`${hind.variable}`}>
+    <html lang="es" className={`${hind.variable}`}>
       <head>
         <title>{seoTitle}</title>
         <meta name="description" content={` ${pageName || "Vale.ia asistencia artificial para vender mas"}`} />
