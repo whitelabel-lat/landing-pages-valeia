@@ -32,7 +32,6 @@ export function useGetStaticProps() {
         });
 
        const entry = entryAll?.items?.[0]?.fields || [];
-       console.log(entry)
         const sectionData = {
           seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
           seoDescription: entry.seo?.fields.seoDescription,
@@ -45,7 +44,7 @@ export function useGetStaticProps() {
               sys: section.sys,
             }
           }
-          ), // Si no existe, devuelve un array vacío
+          ),
         };
 
         setData(sectionData);

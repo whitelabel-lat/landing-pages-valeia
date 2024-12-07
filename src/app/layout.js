@@ -32,7 +32,6 @@ export const hind = Hind({
 export default function RootLayout({ children }) {
 
   const {
-    pageName,
     seoTitle,
     seoDescription,
     canonicalUrl,
