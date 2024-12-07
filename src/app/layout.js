@@ -30,6 +30,7 @@ export const hind = Hind({
 });
 
 export default function RootLayout({ children }) {
+
   const {
     pageName,
     seoTitle,
@@ -42,7 +43,7 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en" className={`${hind.variable}`}>
+    <html lang="es" className={`${hind.variable}`}>
       <head>
         <title>{seoTitle}</title>
         <meta

@@ -1,8 +1,10 @@
 "use client";
 import { createClient } from "contentful";
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation'
 
 export function useGetStaticProps() {
+
   const [data, setData] = useState({
     seoTitle: "",
     pageName: "",
@@ -13,6 +15,8 @@ export function useGetStaticProps() {
     topSections: [],
   });
 
+  const slug = usePathname();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -22,12 +26,12 @@ export function useGetStaticProps() {
         });
 
         const entryAll = await client.getEntries({
-          // content_type: process.env.NEXT_PUBLIC_ENTRY_ID, // Cambia si es un entryId o un tipo de contenido
+          content_type: 'page', // Cambia si es un entryId o un tipo de contenido
           include: 4, // Niveles de profundidad anidados
-          "sys.id": process.env.NEXT_PUBLIC_ENTRY_ID, // Filtra por la ID específica
+          "fields.slug": slug, 
         });
 
-       const entry = entryAll?.items?.[0]?.fields || {};
+       const entry = entryAll?.items?.[0]?.fields || [];
        console.log(entry)
         const sectionData = {
           seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
