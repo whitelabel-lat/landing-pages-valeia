@@ -29,14 +29,14 @@ export const hind = Hind({
 });
 
 export default function RootLayout({ children }) {
-  const {pageTitle, pageName, internalName, slug, seoTitle} = useGetStaticProps();
+  const {pageName, internalName, slug, seoTitle} = useGetStaticProps();
 
 
 
   return (
     <html lang="en" className={`${hind.variable}`}>
       <head>
-        <title>{seoTitle || pageTitle}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={`Landing page: ${pageName || "Default Description"}`} />
         <meta name="slug" content={slug || "default-slug"} />
         <meta name="internal-name" content={internalName || "default-internal-name"} />

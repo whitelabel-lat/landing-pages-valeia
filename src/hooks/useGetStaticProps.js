@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 export function useGetStaticProps() {
-  const [data, setData] = useState({ pageTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
+  const [data, setData] = useState({ seoTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
 
   useEffect(() => {
     async function fetchData() {
@@ -20,9 +20,9 @@ export function useGetStaticProps() {
         });
 
         const entry = entryAll?.items?.[0]?.fields || {};
+        console.log(entry)
         const sectionData = {
-          pageTitle: entry.pageTitle || "Vale.ia - Default Title",
-          seoTitle: entry.seoTitle || "Default SEO Title",
+          seoTitle: entry.seo.fields.seoTitle || "Default SEO Title",
           pageName: entry.pageName || "",
            internalName: entry.internalName || "",
           slug: entry.slug || "",
