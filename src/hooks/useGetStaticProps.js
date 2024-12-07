@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 export function useGetStaticProps() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ seoTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
 
   useEffect(() => {
     async function fetchData() {
@@ -19,10 +19,15 @@ export function useGetStaticProps() {
           "sys.id": process.env.NEXT_PUBLIC_ENTRY_ID, // Filtra por la ID específica
         });
 
+        const entry = entryAll?.items?.[0]?.fields || {};
+  
         const sectionData = {
-          topSections: entryAll.includes.Entry.map((section) => ({
+          seoTitle: entry.seo.fields.seoTitle || "Vale.ia asistencia artificial para vender mas",
+          pageName: entry.pageName || "",
+          slug: entry.slug || "",
+          topSections: entryAll?.includes?.Entry?.map((section) => ({
             ...section.fields,
-          })), // Si no existe, devuelve un array vacío
+          })) || [], // Si no existe, devuelve un array vacío
         };
 
         setData(sectionData);

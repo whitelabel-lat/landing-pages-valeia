@@ -1,3 +1,4 @@
+"use client";
 import { Hind, Inter } from "next/font/google";
 import "@/assets/css/icofont.min.css";
 import "@/assets/css/popup.css";
@@ -11,7 +12,7 @@ import "./globals.css";
 
 import PreloaderPrimary from "@/components/shared/others/PreloaderPrimary";
 import FixedShadow from "@/components/shared/others/FixedShadow";
-
+import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -19,6 +20,7 @@ export const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
+
 export const hind = Hind({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -26,16 +28,19 @@ export const hind = Hind({
   variable: "--font-hind",
 });
 
-export const metadata = {
-  title: "Home 1 | Edurock - Education LMS Template",
-  description: "Home description",
-};
-
 export default function RootLayout({ children }) {
+  const {pageName, internalName, slug, seoTitle} = useGetStaticProps();
+
+
+
   return (
     <html lang="en" className={`${hind.variable}`}>
+      <head>
+        <title>{seoTitle}</title>
+        <meta name="description" content={` ${pageName || "Vale.ia asistencia artificial para vender mas"}`} />
+      </head>
       <body
-        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0  ${inter.className}`}
+        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
       >
         <script
           dangerouslySetInnerHTML={{
@@ -67,11 +72,11 @@ export default function RootLayout({ children }) {
           <FixedShadow />
           <FixedShadow align={"right"} />
           <div
-            class="fb-like"
+            className="fb-like"
             data-share="true"
             data-width="450"
-            data-show-faces="true">
-          </div>
+            data-show-faces="true"
+          ></div>
         </div>
       </body>
     </html>
