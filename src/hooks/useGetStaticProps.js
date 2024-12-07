@@ -4,9 +4,18 @@ import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation'
 
 export function useGetStaticProps() {
-  const slug = usePathname();
 
-  const [data, setData] = useState({ seoTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
+  const [data, setData] = useState({
+    seoTitle: "",
+    seoDescription: "",
+    canonicalUrl: "",
+    featuredImage: "",
+    hideFromSearchEngines: false,
+    excludeLinksFromRankings: false,
+    topSections: [],
+  });
+
+  const slug = usePathname();
 
   useEffect(() => {
     async function fetchData() {
@@ -22,18 +31,20 @@ export function useGetStaticProps() {
           "fields.slug": slug, 
         });
 
-        const entry = entryAll?.items?.[0]?.fields || [];
-  
+       const entry = entryAll?.items?.[0]?.fields || [];
         const sectionData = {
-          seoTitle: entry.seo.fields.seoTitle || "Vale.ia asistencia artificial para vender mas",
-          pageName: entry.pageName || "",
-          slug: entry.slug || "",
-          topSections: entry.topSection.map((section) => { 
+          seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
+          seoDescription: entry.seo?.fields.seoDescription,
+          canonicalUrl: entry.seo?.fields.canonicalUrl || "",
+          featuredImage: entry.seo?.fields.featuredImage?.fields?.file?.url || "",
+          hideFromSearchEngines: entry.seo?.fields.hidePageFromSearchEnginesNoindex || false,
+          excludeLinksFromRankings: entry.seo?.fields.excludeLinksFromSearchRankingsNofollow || false,
+           topSections: entry.topSection.map((section) => { 
             return {fields: section.fields,
               sys: section.sys,
             }
           }
-          ), // Si no existe, devuelve un array vacío
+          ),
         };
 
         setData(sectionData);

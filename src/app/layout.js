@@ -14,6 +14,7 @@ import PreloaderPrimary from "@/components/shared/others/PreloaderPrimary";
 import FixedShadow from "@/components/shared/others/FixedShadow";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
+
 export const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -29,13 +30,35 @@ export const hind = Hind({
 });
 
 export default function RootLayout({ children }) {
-  const {pageName, seoTitle} = useGetStaticProps();
+
+  const {
+    seoTitle,
+    seoDescription,
+    canonicalUrl,
+    featuredImage,
+    hideFromSearchEngines,
+    excludeLinksFromRankings,
+  } = useGetStaticProps();
+
+
 
   return (
     <html lang="es" className={`${hind.variable}`}>
       <head>
         <title>{seoTitle}</title>
-        <meta name="description" content={` ${pageName || "Vale.ia asistencia artificial para vender mas"}`} />
+       <meta
+          name="description"
+          content={seoDescription ||  "Vale.ia asistencia artificial para vender más"}
+        />
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+        {featuredImage && (
+          <>
+            <meta property="og:image" content={featuredImage} />
+            <meta name="twitter:image" content={featuredImage} />
+          </>
+        )}
+        {hideFromSearchEngines && <meta name="robots" content="noindex" />}
+        {excludeLinksFromRankings && <meta name="robots" content="nofollow" />}
       </head>
       <body
         className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
