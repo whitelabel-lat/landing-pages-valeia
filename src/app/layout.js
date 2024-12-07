@@ -37,9 +37,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${hind.variable}`}>
       <head>
         <title>{seoTitle}</title>
-        <meta name="description" content={`Landing page: ${pageName || "Default Description"}`} />
-        <meta name="slug" content={slug || "default-slug"} />
-        <meta name="internal-name" content={internalName || "default-internal-name"} />
+        <meta name="description" content={` ${pageName || "Vale.ia asistencia artificial para vender mas"}`} />
       </head>
       <body
         className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}

@@ -20,11 +20,10 @@ export function useGetStaticProps() {
         });
 
         const entry = entryAll?.items?.[0]?.fields || {};
-        console.log(entry)
+  
         const sectionData = {
-          seoTitle: entry.seo.fields.seoTitle || "Default SEO Title",
+          seoTitle: entry.seo.fields.seoTitle || "Vale.ia asistencia artificial para vender mas",
           pageName: entry.pageName || "",
-           internalName: entry.internalName || "",
           slug: entry.slug || "",
           topSections: entryAll?.includes?.Entry?.map((section) => ({
             ...section.fields,
