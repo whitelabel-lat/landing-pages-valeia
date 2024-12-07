@@ -3,7 +3,15 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 export function useGetStaticProps() {
-  const [data, setData] = useState({ seoTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
+  const [data, setData] = useState({
+    seoTitle: "",
+    pageName: "",
+    canonicalUrl: "",
+    featuredImage: "",
+    hideFromSearchEngines: false,
+    excludeLinksFromRankings: false,
+    topSections: [],
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -19,12 +27,15 @@ export function useGetStaticProps() {
           "sys.id": process.env.NEXT_PUBLIC_ENTRY_ID, // Filtra por la ID específica
         });
 
-        const entry = entryAll?.items?.[0]?.fields || {};
-  
+       const entry = entryAll?.items?.[0]?.fields || {};
+       console.log(entry)
         const sectionData = {
-          seoTitle: entry.seo.fields.seoTitle || "Vale.ia asistencia artificial para vender mas",
-          pageName: entry.pageName || "",
-          slug: entry.slug || "",
+          seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
+          pageName: entry.pageName || "Vale.ia",
+          canonicalUrl: entry.seo?.fields.canonicalUrl || "",
+          featuredImage: entry.seo?.featuredImage?.fields?.file?.url || "",
+          hideFromSearchEngines: entry.seo?.hideFromSearchEngines || false,
+          excludeLinksFromRankings: entry.seo?.excludeLinksFromRankings || false,
           topSections: entryAll?.includes?.Entry?.map((section) => ({
             ...section.fields,
           })) || [], // Si no existe, devuelve un array vacío
