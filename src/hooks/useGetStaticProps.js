@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 export function useGetStaticProps() {
-  const [data, setData] = useState({ pageTitle: "Loading...", topSections: [] });
+  const [data, setData] = useState({ pageTitle: "Loading...",   pageName: "", internalName: "", slug: "", topSections: [] });
 
   useEffect(() => {
     async function fetchData() {
@@ -19,8 +19,13 @@ export function useGetStaticProps() {
           "sys.id": process.env.NEXT_PUBLIC_ENTRY_ID, // Filtra por la ID específica
         });
 
+        const entry = entryAll?.items?.[0]?.fields || {};
         const sectionData = {
-          pageTitle: entryAll?.items?.[0]?.fields?.pageTitle || "Vale.ia - Default Title",
+          pageTitle: entry.pageTitle || "Vale.ia - Default Title",
+          seoTitle: entry.seoTitle || "Default SEO Title",
+          pageName: entry.pageName || "",
+           internalName: entry.internalName || "",
+          slug: entry.slug || "",
           topSections: entryAll?.includes?.Entry?.map((section) => ({
             ...section.fields,
           })) || [], // Si no existe, devuelve un array vacío

@@ -12,8 +12,7 @@ import "./globals.css";
 
 import PreloaderPrimary from "@/components/shared/others/PreloaderPrimary";
 import FixedShadow from "@/components/shared/others/FixedShadow";
-import { useGetStaticProps, pageTitle } from "@/hooks/useGetStaticProps";
-import { useEffect } from "react";
+import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -30,18 +29,17 @@ export const hind = Hind({
 });
 
 export default function RootLayout({ children }) {
-  const data = useGetStaticProps();
+  const {pageTitle, pageName, internalName, slug, seoTitle} = useGetStaticProps();
 
-  useEffect(() => {
-    if (data.pageTitle) {
-      document.title = data.pageTitle; // Actualiza dinámicamente el título del documento
-    }
-  }, [data.pageTitle]);
+
 
   return (
     <html lang="en" className={`${hind.variable}`}>
       <head>
-        <title>{pageTitle}</title>
+        <title>{seoTitle || pageTitle}</title>
+        <meta name="description" content={`Landing page: ${pageName || "Default Description"}`} />
+        <meta name="slug" content={slug || "default-slug"} />
+        <meta name="internal-name" content={internalName || "default-internal-name"} />
       </head>
       <body
         className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
