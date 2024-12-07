@@ -1,3 +1,4 @@
+"use client";
 import { Hind, Inter } from "next/font/google";
 import "@/assets/css/icofont.min.css";
 import "@/assets/css/popup.css";
@@ -11,7 +12,8 @@ import "./globals.css";
 
 import PreloaderPrimary from "@/components/shared/others/PreloaderPrimary";
 import FixedShadow from "@/components/shared/others/FixedShadow";
-
+import { useGetStaticProps, pageTitle } from "@/hooks/useGetStaticProps";
+import { useEffect } from "react";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -19,6 +21,7 @@ export const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
+
 export const hind = Hind({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -26,16 +29,22 @@ export const hind = Hind({
   variable: "--font-hind",
 });
 
-export const metadata = {
-  title: "Home 1 | Edurock - Education LMS Template",
-  description: "Home description",
-};
-
 export default function RootLayout({ children }) {
+  const data = useGetStaticProps();
+
+  useEffect(() => {
+    if (data.pageTitle) {
+      document.title = data.pageTitle; // Actualiza dinámicamente el título del documento
+    }
+  }, [data.pageTitle]);
+
   return (
     <html lang="en" className={`${hind.variable}`}>
+      <head>
+        <title>{pageTitle}</title>
+      </head>
       <body
-        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0  ${inter.className}`}
+        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
       >
         <script
           dangerouslySetInnerHTML={{
@@ -67,11 +76,11 @@ export default function RootLayout({ children }) {
           <FixedShadow />
           <FixedShadow align={"right"} />
           <div
-            class="fb-like"
+            className="fb-like"
             data-share="true"
             data-width="450"
-            data-show-faces="true">
-          </div>
+            data-show-faces="true"
+          ></div>
         </div>
       </body>
     </html>

@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 export function useGetStaticProps() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ pageTitle: "Loading...", topSections: [] });
 
   useEffect(() => {
     async function fetchData() {
@@ -20,9 +20,10 @@ export function useGetStaticProps() {
         });
 
         const sectionData = {
-          topSections: entryAll.includes.Entry.map((section) => ({
+          pageTitle: entryAll?.items?.[0]?.fields?.pageTitle || "Vale.ia - Default Title",
+          topSections: entryAll?.includes?.Entry?.map((section) => ({
             ...section.fields,
-          })), // Si no existe, devuelve un array vacío
+          })) || [], // Si no existe, devuelve un array vacío
         };
 
         setData(sectionData);
