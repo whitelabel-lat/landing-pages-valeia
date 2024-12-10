@@ -6,8 +6,8 @@ const MobileMenuItems = () => {
   const items = [
     {
       id: 5,
-      name: "Demo",
-      path: "/ecommerce/shop",
+      name: "Blog",
+      path: "/blogs",
       accordion: "accordion",
     },
   ];
