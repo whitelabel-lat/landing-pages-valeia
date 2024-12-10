@@ -9,8 +9,7 @@ const BlogDetails = ({ blog }) => {
   }
 
   return (
-    console.log(blog.content),
-    (
+        (
       <section>
         <div className="container py-10 md:py-50px lg:py-60px 2xl:py-100px">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-30px">

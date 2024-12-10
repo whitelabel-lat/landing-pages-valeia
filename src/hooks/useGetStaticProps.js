@@ -49,8 +49,11 @@ export function useGetStaticProps() {
               content: blog.fields.content,
               headerImage: blog.fields.headerImage?.fields?.file?.url ? 
                 `https:${blog.fields.headerImage.fields.file.url}` : "",
-              sections: blog.fields.sections,
-              createdAt: blog.sys.createdAt
+              createdAt: blog.sys.createdAt,
+              sections: blog.fields.sections?.map((section) => ({
+            fields: section.fields,
+            sys: section.sys,
+          }))
             };
           }
         }
@@ -89,7 +92,6 @@ export function useGetStaticProps() {
             content: post.fields.content,
             headerImage: post.fields.headerImage?.fields?.file?.url ? 
               `https:${post.fields.headerImage.fields.file.url}` : "",
-            sections: post.fields.sections,
             createdAt: post.sys.createdAt
           })),
           currentBlog

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useGetStaticProps } from "@/hooks/useGetStaticProps";
+
 
 const Blog = ({ blog = {} }) => {
   const { title = "Untitled", image, publishDate = "No date", slug } = blog;

@@ -11,14 +11,23 @@ const BlogDetails = () => {
   const { currentBlog } = useGetStaticProps();
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (currentBlog) {
-      document.title = currentBlog.title;
-      document.querySelector('meta[name="description"]')?.setAttribute('content', currentBlog.summary || "");
-    }
-  }, [currentBlog]);
+useEffect(() => {
+  if (currentBlog) {
+    document.title = currentBlog.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', currentBlog.summary || "");
 
-  // Show loading state while fetching
+    if (currentBlog.headerImage) {
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement("link");
+        link.rel = "icon";
+        document.head.appendChild(link);
+      }
+      link.href = currentBlog.headerImage;
+    }
+  }
+}, [currentBlog]);
+
   if (!currentBlog && pathname.startsWith('/blogs/')) {
     return (
       <PageWrapper>
@@ -36,7 +45,6 @@ const BlogDetails = () => {
     );
   }
 
-  // Show 404 if blog not found
   if (!currentBlog) {
     return notFound();
   }
@@ -44,7 +52,7 @@ const BlogDetails = () => {
   return (
     <PageWrapper>
       <main>
-        <HeroPrimary title={currentBlog.title} path="Blog Details" />
+        <HeroPrimary title={currentBlog.title} />
         <BlogDetailsMain blog={currentBlog} />
         <ThemeController />
       </main>
