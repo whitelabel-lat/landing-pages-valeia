@@ -1,6 +1,5 @@
 "use client";
 import Brands from "@/components/sections/brands/Brands";
-
 import PopularSubjectsValeia from "@/components/sections/popular-subjects/PopularSubjectsValeia";
 import RegistrationValeia from "@/components/sections/registrations/RegistrationValeia";
 import AboutValeia2 from "@/components/sections/abouts/AboutValeia2";
