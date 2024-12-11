@@ -1,19 +1,27 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 import BlogList from "@/components/sections/blogs/BlogList";
 import BlogsSidebar from "@/components/shared/blogs/BlogsSidebar";
+import { useSearchParams } from "next/navigation";
 
 const BlogsPrimary = () => {
   const { blogPosts, categories } = useGetStaticProps();
+  const searchParams = useSearchParams(); // Leer parámetros de la URL
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // Leer la categoría de los parámetros de la URL al cargar
+  useEffect(() => {
+    const category = searchParams.get("category");
+    setSelectedCategory(category);
+  }, [searchParams]);
 
   // Filtrar los blogs según la categoría seleccionada
   const filteredBlogs = selectedCategory
     ? blogPosts.filter((blog) =>
         blog.categories.some((category) => category.slug === selectedCategory)
       )
-    : blogPosts; // Mostrar todos si no hay categoría seleccionada
+    : blogPosts;
 
   return (
     <section>

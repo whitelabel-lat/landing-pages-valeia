@@ -1,5 +1,5 @@
 "use client";
-import Link from 'next/link';
+import Link from "next/link";
 
 const BlogCategories = ({ categories, onCategorySelect, selectedCategory }) => {
   return (
@@ -16,7 +16,7 @@ const BlogCategories = ({ categories, onCategorySelect, selectedCategory }) => {
           key="all"
           className={`text-contentColor hover:text-contentColor-dark hover:bg-primaryColor transition-all duration-300 text-sm font-medium px-4 py-2 border border-borderColor2 hover:border-primaryColor dark:border-borderColor2-dark dark:hover:border-primaryColor flex justify-between leading-7 ${
             !selectedCategory ? "bg-primaryColor text-white" : ""
-          }`}
+          } cursor-pointer`}
           onClick={() => onCategorySelect(null)}
         >
           All Blogs
@@ -26,8 +26,10 @@ const BlogCategories = ({ categories, onCategorySelect, selectedCategory }) => {
           <li
             key={category.slug}
             className={`text-contentColor hover:text-contentColor-dark hover:bg-primaryColor transition-all duration-300 text-sm font-medium px-4 py-2 border border-borderColor2 hover:border-primaryColor dark:border-borderColor2-dark dark:hover:border-primaryColor flex justify-between leading-7 ${
-              selectedCategory === category.slug ? "bg-primaryColor text-white" : ""
-            }`}
+              selectedCategory === category.slug
+                ? "bg-primaryColor text-white"
+                : ""
+            } cursor-pointer`}
             onClick={() => onCategorySelect(category.slug)}
           >
             {category.name}
