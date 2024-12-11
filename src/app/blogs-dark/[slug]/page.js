@@ -1,5 +1,3 @@
-import BlogDetailsMain from "@/components/sections/blogs/BlogDetails";
-import ThemeController from "@/components/shared/others/ThemeController";
 "use client";
 import { usePathname, notFound } from 'next/navigation';
 import { useEffect } from 'react';

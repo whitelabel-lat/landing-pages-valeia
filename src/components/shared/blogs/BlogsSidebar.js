@@ -4,17 +4,20 @@ import RecentPosts from "./RecentPosts";
 
 
 
-const BlogsSidebar = () => {
+const BlogsSidebar = ({ categories, onCategorySelect, selectedCategory }) => {
   return (
     <div className="flex flex-col">
-
       {/* categories */}
-      <BlogCategories />
+      <BlogCategories 
+        categories={categories} 
+        onCategorySelect={onCategorySelect} 
+        selectedCategory={selectedCategory} 
+      />
       {/* recent posts */}
       <RecentPosts />
-
     </div>
   );
 };
 
 export default BlogsSidebar;
+

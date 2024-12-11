@@ -13,7 +13,8 @@ export function useGetStaticProps() {
     excludeLinksFromRankings: false,
     topSections: [],
     blogPosts: [],
-    currentBlog: null
+    categories: [],
+    currentBlog: null,
   });
 
   const pathname = usePathname();
@@ -32,7 +33,6 @@ export function useGetStaticProps() {
         let blogEntries = null;
 
         if (isSingleBlog) {
-          
           const blogResponse = await client.getEntries({
             content_type: 'blogPost',
             'fields.slug[match]': slug,
@@ -50,22 +50,32 @@ export function useGetStaticProps() {
               headerImage: blog.fields.headerImage?.fields?.file?.url ? 
                 `https:${blog.fields.headerImage.fields.file.url}` : "",
               createdAt: blog.sys.createdAt,
-              sections: blog.fields.sections?.map((section) => ({
-            fields: section.fields,
-            sys: section.sys,
-          }))
+              sections: blog.fields.sections?.map(section => ({
+                fields: section.fields,
+                sys: section.sys,
+              })),
             };
           }
         }
 
-        
         blogEntries = await client.getEntries({
           content_type: 'blogPost',
           order: '-sys.createdAt',
           include: 2
         });
 
-        
+        const allCategories = blogEntries.items.flatMap(post =>
+          post.fields.categories?.map(category => ({
+            name: category.fields.name,
+            slug: category.fields.slug,
+          })) || []
+        );
+
+        // Filtrar categorías únicas por slug
+        const uniqueCategories = Array.from(
+          new Map(allCategories.map(cat => [cat.slug, cat])).values()
+        );
+
         const pageEntries = await client.getEntries({
           content_type: 'page',
           include: 4,
@@ -73,7 +83,7 @@ export function useGetStaticProps() {
         });
 
         const entry = pageEntries?.items?.[0]?.fields || [];
-        
+
         const sectionData = {
           seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
           seoDescription: entry.seo?.fields?.seoDescription || currentBlog?.summary,
@@ -81,7 +91,7 @@ export function useGetStaticProps() {
           featuredImage: entry.seo?.fields?.featuredImage?.fields?.file?.url || "",
           hideFromSearchEngines: entry.seo?.fields?.hidePageFromSearchEnginesNoindex || false,
           excludeLinksFromRankings: entry.seo?.fields?.excludeLinksFromSearchRankingsNofollow || false,
-          topSections: entry.topSection?.map((section) => ({
+          topSections: entry.topSection?.map(section => ({
             fields: section.fields,
             sys: section.sys,
           })) || [],
@@ -92,9 +102,14 @@ export function useGetStaticProps() {
             content: post.fields.content,
             headerImage: post.fields.headerImage?.fields?.file?.url ? 
               `https:${post.fields.headerImage.fields.file.url}` : "",
-            createdAt: post.sys.createdAt
+            categories: post.fields.categories?.map(cat => ({
+              name: cat.fields.name,
+              slug: cat.fields.slug,
+            })) || [],
+            createdAt: post.sys.createdAt,
           })),
-          currentBlog
+          categories: uniqueCategories,
+          currentBlog,
         };
 
         setData(sectionData);
