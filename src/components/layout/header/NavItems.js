@@ -7,7 +7,7 @@ const NavItems = () => {
     {
       id: 1,
       name: "Blog",
-      path: "/",
+      path: "/blogs",
       isRelative: false,
     },
   ];

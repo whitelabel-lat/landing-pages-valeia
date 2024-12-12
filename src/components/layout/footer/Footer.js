@@ -25,13 +25,13 @@ const Footer = () => {
     {/* Footer top, Footer about and FooterNavList in a row */}
     <div className="flex flex-wrap justify-between">
       {/* Left side: FooterTop and FooterAbout */}
-      <div className="flex flex-col space-y-5 w-full md:w-[50%]">
+      <div className="flex flex-col space-y-5 w-full md:w-[65%]">
         <FooterTop />
         <FooterAbout />
       </div>
 
       {/* Right side: FooterNavList */}
-      <div className="w-full md:w-[50%] flex justify-end">
+      <div className="w-full md:w-[35%] flex justify-end">
       <FooterRecentPosts />
       </div>
     </div>
