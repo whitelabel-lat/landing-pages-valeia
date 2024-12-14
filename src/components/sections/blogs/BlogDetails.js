@@ -1,8 +1,9 @@
 import { useRouter } from "next/navigation"; // Importa el router para redirigir
 import Image from "next/image";
 import BlogsSidebar from "@/components/shared/blogs/BlogsSidebar";
-import BlogTagsAndSocila from "@/components/shared/blog-details/BlogTagsAndSocila";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+//import BlogTagsAndSocila from "@/components/shared/blog-details/BlogTagsAndSocila";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { renderOptions } from "../../../utils/RenderOptions";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
 const BlogDetails = ({ blog }) => {
@@ -58,14 +59,9 @@ const BlogDetails = ({ blog }) => {
               {/* Content */}
               <div
                 className="prose max-w-none text-lg text-darkdeep4 mb-30px !leading-30px"
-                dangerouslySetInnerHTML={{
-                  __html: documentToHtmlString(blog.content),
-                }}
-                data-aos="fade-up"
               />
+               {documentToReactComponents(blog.content, renderOptions)}
 
-              {/* Tags and Social 
-              <BlogTagsAndSocila />*/}
             </div>
           </div>
 

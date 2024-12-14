@@ -9,7 +9,7 @@ export const renderOptions = {
     [BLOCKS.HEADING_1]: (node, children) => <h1 className="text-4xl font-bold mb-4">{children}</h1>,
     [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-3xl font-semibold mb-4">{children}</h2>,
     [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-2xl font-medium mb-3">{children}</h3>,
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg text-gray-300 mb-2">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg text-darkdeep4 mb-2">{children}</p>,
     [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4">{children}</ul>,
     [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4">{children}</ol>,
     [BLOCKS.LIST_ITEM]: (node, children) => <li>{children}</li>,
