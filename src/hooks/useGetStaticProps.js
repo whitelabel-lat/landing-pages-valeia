@@ -94,7 +94,9 @@ export function useGetStaticProps() {
           topSections: entry.topSection?.map(section => ({
             fields: section.fields,
             sys: section.sys,
+            
           })) || [],
+          
           blogPosts: blogEntries.items.map(post => ({
             title: post.fields.title,
             slug: post.fields.slug,
@@ -111,7 +113,6 @@ export function useGetStaticProps() {
           categories: uniqueCategories,
           currentBlog,
         };
-
         setData(sectionData);
       } catch (error) {
         console.error("Error fetching data:", error);

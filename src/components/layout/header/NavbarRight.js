@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-
 import Link from "next/link";
-
 import useIsTrue from "@/hooks/useIsTrue";
 import LoginButton from "./LoginButton";
 import DropdownCart from "./DropdownCart";
@@ -20,9 +18,9 @@ const NavbarRight = () => {
       <ul className="relative nav-list flex justify-end items-center">
         {/* {!isHome2Dark && ( */}
 
-        <li className="hidden lg:block">
+        <li className="hidden lg:block"> // aqui va el form para el demo que falta definir 
           <Link
-            href="/courses"
+            href="/https://bit.ly/valeia_demo_form"
             className="text-size-12 2xl:text-size-15 text-whiteColor bg-primaryColor block border-primaryColor border hover:text-primaryColor hover:bg-white px-15px py-2 rounded-standard dark:hover:bg-whiteColor-dark dark: dark:hover:text-whiteColor"
           >
             {/* {isHome2Dark */}
