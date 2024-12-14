@@ -10,20 +10,19 @@ const NavbarRight = () => {
   const isHome4Dark = useIsTrue("/home-4-dark");
   const isHome5 = useIsTrue("/home-5");
   const isHome5Dark = useIsTrue("/home-5-dark");
-  // const isHome2Dark = useIsTrue("/home-2-dark");
   const isHomeValeiaDark = useIsTrue("/home-valeia-dark");
 
   return (
     <div className="lg:col-start-10 lg:col-span-3">
       <ul className="relative nav-list flex justify-end items-center">
-        {/* {!isHome2Dark && ( */}
+        
 
-        <li className="hidden lg:block"> // aqui va el form para el demo que falta definir 
+        <li className="hidden lg:block"> {/*  aqui va el form para el demo que falta definir  */}
           <Link
-            href="/https://bit.ly/valeia_demo_form"
+            href="/https://bit.ly/valeia_demo_form" 
             className="text-size-12 2xl:text-size-15 text-whiteColor bg-primaryColor block border-primaryColor border hover:text-primaryColor hover:bg-white px-15px py-2 rounded-standard dark:hover:bg-whiteColor-dark dark: dark:hover:text-whiteColor"
           >
-            {/* {isHome2Dark */}
+            
             {isHomeValeiaDark
               ? "Get Started Free"
               : isHome4 || isHome4Dark || isHome5 || isHome5Dark
