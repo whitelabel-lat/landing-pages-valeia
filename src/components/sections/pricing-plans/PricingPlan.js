@@ -22,7 +22,7 @@ const PricingPlan = ({ plans }) => {
 
       <PlanDetails plan={currentPlan} />
       
-      <PlanFeatures features={currentPlan?.fields?.features?} />
+      <PlanFeatures features={currentPlan?.fields?.features} />
       
       <PlanActions plan={currentPlan} />
     </div>
