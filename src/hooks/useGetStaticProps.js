@@ -113,7 +113,6 @@ export function useGetStaticProps() {
           categories: uniqueCategories,
           currentBlog,
         };
-console.log(sectionData.topSections),
         setData(sectionData);
       } catch (error) {
         console.error("Error fetching data:", error);
