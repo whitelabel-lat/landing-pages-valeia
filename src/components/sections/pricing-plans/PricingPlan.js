@@ -10,7 +10,8 @@ const PricingPlan = ({ plans }) => {
   
   return (
     
-    <div className="max-w-[600px] mx-auto bg-white rounded-lg p-8 shadow-lg font-poppins">
+    <div className="max-w-[600px] mx-auto bg-white rounded-3xl p-8 shadow-lg font-poppins h-full ">
+    <div className="h-full">
       <h2 className="text-2xl font-bold mb-6 text-center">SUBSCRIPCION</h2>
       
       <PlanSelector 
@@ -24,6 +25,7 @@ const PricingPlan = ({ plans }) => {
       <PlanFeatures features={currentPlan.fields.features} />
       
       <PlanActions plan={currentPlan} />
+    </div>
     </div>
     
   );

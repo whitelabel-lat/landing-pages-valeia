@@ -79,13 +79,14 @@ const RegistrationValeia = ({
 
            
             <div className="overflow-visible lg:col-start-8 lg:col-span-5 relative z-1 lg:-mb-150px">
-              <div className="relative w-[470px] h-[581px]">
-                <img
-                  className="absolute left-0 bottom-0 w-full h-full object-cover"
-                  src={fullImageUrl0}
-                  alt="Reemplazo del formulario"
-                />
-              </div>
+<div className="relative w-full max-w-[470px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-[470px] h-auto aspect-[470/581]">
+  <img
+    className="absolute left-0 bottom-0 w-full h-full object-cover"
+    src={fullImageUrl0}
+    alt="Reemplazo del formulario"
+  />
+</div>
+
               <div className="w-300px md:w-342px rounded-lg absolute top-6 rihgt-0 md:top-[80px] md:right-[9px] lg:right-[-26px] 2xl:right-[-166px] bg-whiteColor p-10px flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
                 <div>
                   <img
