@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation"; // Importa el router para redirigir
 import Image from "next/image";
 import BlogsSidebar from "@/components/shared/blogs/BlogsSidebar";
-//import BlogTagsAndSocila from "@/components/shared/blog-details/BlogTagsAndSocila";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { renderOptions } from "../../../utils/RenderOptions";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
