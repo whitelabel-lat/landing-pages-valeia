@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^17.0.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "aos": "^2.3.4",
     "chart.js": "^4.4.4",
