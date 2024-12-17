@@ -1,39 +1,38 @@
-// hooks/useFacebookSDK.js
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const useFacebookSDK = (appId, apiVersion) => {
   const [fbInstance, setFbInstance] = useState(null);
 
   useEffect(() => {
-    if (!appId || !apiVersion) {
-      console.error("Por favor, proporciona un appId y apiVersion validos para el SDK de Facebook");
+    // Evita cargar el script si ya existe
+    if (window.FB) {
+      setFbInstance(window.FB);
       return;
     }
 
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: appId,
-        cookie: true,
-        xfbml: true,
-        version: apiVersion,
-      });
-      FB.AppEvents.logPageView();
-      setFbInstance(FB); // Guarda la instancia de FB
+    // Agrega el script dinámicamente
+    const script = document.createElement("script");
+    script.async = true;
+    script.defer = true;
+    script.crossOrigin = "anonymous";
+    script.src = "https://connect.facebook.net/en_US/sdk.js";
+    script.onload = () => {
+      // Inicializa el SDK después de cargarlo
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: appId,
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: apiVersion,
+        });
+        setFbInstance(window.FB);
+      };
     };
 
-    (function (d, s, id) {
-      let js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    document.body.appendChild(script);
   }, [appId, apiVersion]);
 
-    return fbInstance; // Retorna la instancia de FB
+  return fbInstance;
 };
 
 export default useFacebookSDK;
