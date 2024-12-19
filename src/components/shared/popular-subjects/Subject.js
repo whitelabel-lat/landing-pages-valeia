@@ -1,12 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-const Subject = ({ subject, type, textLink }) => {
-  const { title, desc, navButton, svg, translate, image, id, category } =
+const Subject = ({ subject, type }) => {
+  const { title, desc, translate } =
     subject;
-  const path = `/courses?category=${
-    category ? category.split(" ").join("_").toLowerCase() : "#"
-  }`;
   return (
     <div data-aos="fade-up">
       <div className={translate ? "md:translate-y-[30px]" : ""}>
@@ -16,22 +13,9 @@ const Subject = ({ subject, type, textLink }) => {
           } group bg-whiteColor rounded-xl transition-all duration-300 shadow-dropdown-secodary hover:bg-primaryColor hover:-translate-y-5px hover:text-whiteColor dark:bg-whiteColor-dark dark:hover:bg-primaryColor`}
         >
           {/* card svg */}
-          <div className="-translate-y-2 flex justify-between overflow-hidden mb-0 md:mb-1 lg:mb-3">
-            {image ? (
-              <div className="relative w-15 h-15">
-                <img
-                  loading="lazy"
-                  src={image}
-                  alt=""
-                  className="w-full"
-                  placeholder="blur"
-                />
-              </div>
-            ) : (
-              svg
-            )}
+          <div className="-translate-y-2 flex justify-end ">
 
-            <div className="service__small__img w-7 h-[60px]">
+            <div className="service__small__img w-2 h-[10px]">
               <svg
                 className="icon__hover__img w-7 h-[60px] opacity-0 group-hover:opacity-100"
                 fill="none"
@@ -47,19 +31,16 @@ const Subject = ({ subject, type, textLink }) => {
               </svg>
             </div>
           </div>
-          {/* card content */}
+        
+         {/* card content */}
           <div>
-            <h3>
-              <Link
-                href={path}
-                className={`${
+            <h3 className={`${
                   type === "primary"
                     ? "text-size-22 sm:text-size-17 md:text-size-22 lg:text-size-17 2xl:text-size-22 leading-29px sm:leading-15px md:leading-29px lg:leading-15px 2xl:leading-29px font-semibold mb-5px "
                     : "text-size-23 lg:text-lg 2xl:text-size-23 mb-2 md:-mb-1 2xl:mb-10px"
-                } font-semibold  hover:text-secondaryColor  dark:text-whiteColor dark:hover:text-secondaryColor `}
-              >
+                } font-semibold  hover:text-secondaryColor  dark:text-whiteColor dark:hover:text-secondaryColor `}>
+
                 {title}
-              </Link>
             </h3>
 
             <p
@@ -71,19 +52,7 @@ const Subject = ({ subject, type, textLink }) => {
             >
               {desc}
             </p>
-            {navButton && (
-              <div>
-                <div className="text-sm text-black dark:text-blackColor-darkColor group-hover:text-whiteColor dark:text-blackColor-dark dark:group-hover:text-whiteColor-dark">
-                  <Link
-                    href={path}
-                    className="text-sm font-medium hover:text-secondaryColor "
-                  >
-                    {textLink}
-                    <i className="icofont-long-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            )}
+
           </div>
         </div>
       </div>
