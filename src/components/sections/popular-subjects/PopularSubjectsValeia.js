@@ -3,12 +3,7 @@ import Subjects from "@/components/shared/popular-subjects/Subjects";
 import React from "react";
 import shapImage from "@/assets/images/service/service__shape__1.png";
 import shapBgImage from "@/assets/images/service/service__shape__bg__1.png";
-
 import useIsTrue from "@/hooks/useIsTrue";
-import virtualRealityImage from "@/assets/images/icon/virtual-reality.png";
-import machineLearningImage from "@/assets/images/icon/machine-learning.png";
-import artifitialImage from "@/assets/images/icon/artificial-intelligence.png";
-import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 
 const PopularSubjectsValeia = (props) => {
   const isHome9 = useIsTrue("/home-9");
@@ -27,45 +22,24 @@ const PopularSubjectsValeia = (props) => {
 
     const subjects = [
       {
-        title:
-          isHome9 || isHome9Dark
-            ? "Daily Routnies"
-            : isHome10 || isHome10Dark
-            ? "AI Automation"
-            : card1.fields?.title,
+        title: card1.fields?.title,
         desc: card1.fields?.info,
 
     },
       
       {
-        title:
-          isHome9 || isHome9Dark
-            ? "Activity Room"
-            : isHome10 || isHome10Dark
-            ? "Virtual Reality"
-            : card2.fields?.title,
+        title: card2.fields?.title,
         desc: card2.fields?.info,
         translate: true,       
       },
       {
-        title:
-          isHome9 || isHome9Dark
-            ? "Toy & Games"
-            : isHome10 || isHome10Dark
-            ? "Machine Learning"
-            : card3.fields?.title,
+        title: card3.fields?.title,
         desc: card3.fields?.info,
       },
       {
-        title:
-          isHome9 || isHome9Dark
-            ? "Summer Champ"
-            : isHome10 || isHome10Dark
-            ? "Ai Cloud Services"
-            : card4.fields?.title,
+        title: card4.fields?.title,
         desc: card4.fields?.info,
         translate: true,
-        image: card4.fields?.image,
       },
     ];
 
