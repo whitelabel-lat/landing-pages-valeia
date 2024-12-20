@@ -10,7 +10,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-cards";
 import "./globals.css";
 
-import PreloaderPrimary from "@/components/shared/others/PreloaderPrimary";
 import FixedShadow from "@/components/shared/others/FixedShadow";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 
@@ -39,7 +38,6 @@ export default function RootLayout({ children }) {
     hideFromSearchEngines,
     excludeLinksFromRankings,
   } = useGetStaticProps();
-
 
 
   return (
@@ -85,7 +83,6 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        <PreloaderPrimary />
         {children}
 
         {/* theme fixed shadow */}
