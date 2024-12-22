@@ -3,7 +3,7 @@ import TiltWrapper from "@/components/shared/wrappers/TiltWrapper";
 const {
   default: HeadingLg,
 } = require("@/components/shared/headings/HeadingLg");
-const { default: Link } = require("next/link");
+
 
 const HeroValeia = (props) => {
   const fullImageUrls =
@@ -20,11 +20,6 @@ const HeroValeia = (props) => {
   const fullImageUrl5 = fullImageUrls[5] || "";
   const fullImageUrl6 = fullImageUrls[6] || "";
   const fullImageUrl7 = fullImageUrls[7] || "";
-  const fullImageUrl8 = fullImageUrls[8] || "";
-  const fullImageUrl9 = fullImageUrls[9] || "";
-  const fullImageUrl10 = fullImageUrls[10] || "";
-  const fullImageUrl11 = fullImageUrls[11] || "";
-  const fullImageUrl12 = fullImageUrls[12] || "";
 
   return (
     <section data-aos="fade-up">
@@ -63,9 +58,9 @@ const HeroValeia = (props) => {
               <div>
                 <form className="flex gap-x-15px items-center flex-wrap gap-y-5">
                   <button
-                    type="submit"
-                    className="text-size-15 text-whiteColor bg-primaryColor px-39px py-14px border border-primaryColor hover:text-primaryColor hover:bg-whiteColor inline-block rounded group dark:hover:text-whiteColor dark:hover:bg-whiteColor-dark"
-                  >
+                    type="button"
+                    onClick={() => window.location.href = props.buttonLink || "#"}
+                    className="text-size-15 text-whiteColor bg-primaryColor px-39px py-14px border border-primaryColor hover:text-primaryColor hover:bg-whiteColor inline-block rounded group dark:hover:text-whiteColor dark:hover:bg-whiteColor-dark">
                     {props.buttonSing}
                   </button>
                 </form>
@@ -102,86 +97,12 @@ const HeroValeia = (props) => {
                       placeholder="blur"
                     />
                   </div>
-                  <div className="w-[300px] md:w-[342px] rounded-lg absolute top-6 right-0 md:top-[41px] md:right-[9px] lg:right-[-26px] 2xl:right-[-166px] bg-whiteColor p-4 flex items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={fullImageUrl12}
-                        className="w-16 h-16 rounded-full object-cover"
-                        alt=""
-                      />
-                    </div>
-                    <div className="ml-4 flex-grow">
-                      <p className="text-sm font-semibold text-greencolor3">
-                        {props.chatTitle1}
-                      </p>
-                      <p className="text-sm text-contentColor dark:text-contentColor-dark">
-                        {props.chatInput1}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="w-[300px] md:w-[342px] absolute bottom-12 rounded-lg left-0 md:bottom-[-41px] md:left-[9px] lg:left-[-26px] 2xl:left-[-166px] bg-whiteColor p-[10px] flex gap-x-5 items-center animate-move-var shadow-hero-greeting dark:bg-whiteColor-dark">
-                    <div>
-                      <img
-                        src={fullImageUrl12}
-                        className="w-[55px] h-[55px] rounded block"
-                        alt=""
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-[15px] font-semibold text-greencolor3">
-                        {props.chatTitle2}
-                      </p>
-                      <p className="text-sm text-contentColor dark:text-contentColor-dark">
-                        {props.chatInput2}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="absolute right-10 bottom-[-136px] md:right-[219px] md:bottom-[-105px] lg:right-[-50px] lg:bottom-[-125px] 2xl:right-10 2xl:bottom-[-105px]">
-                    <Link href="#" className="flex group">
-                      <img
-                        src={fullImageUrl8}
-                        className="w-52px h-52px"
-                        alt=""
-                        placeholder="blur"
-                      />
-                      <img
-                        src={fullImageUrl9}
-                        className="w-52px h-52px transition-all duration-300 -ml-35px group-hover:-ml-30px"
-                        alt=""
-                        placeholder="blur"
-                      />
-                      <img
-                        src={fullImageUrl10}
-                        className="w-52px h-52px transition-all duration-300 -ml-35px group-hover:-ml-30px"
-                        alt=""
-                        placeholder="blur"
-                      />
-                      <img
-                        src={fullImageUrl11}
-                        className="w-52px h-52px transition-all duration-300 -ml-35px group-hover:-ml-30px"
-                        alt=""
-                        placeholder="blur"
-                      />
-                    </Link>
-                    <div>
-                      <p className="text-sm text-lightGrey3 mb-15px">
-                        Join over
-                        <span className="text-blackColor dark:text-blackColor-dark">
-                          4000+
-                        </span>
-                        students
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </TiltWrapper>
             </div>
           </div>
         </div>
       </div>
-      {/* bannaer section */}
     </section>
   );
 };

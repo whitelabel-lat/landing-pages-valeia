@@ -9,7 +9,7 @@ import HeroPrimary from "@/components/sections/hero-banners/HeroPrimary";
 
 const BlogDetails = () => {
   const { currentBlog } = useGetStaticProps();
-  const pathname = usePathname();
+  const pathname = usePathname(); 
 
 useEffect(() => {
   if (currentBlog) {
