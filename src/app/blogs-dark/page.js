@@ -1,7 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
 import BlogsMain from "@/components/layout/main/Blogs";
 import ThemeController from "@/components/shared/others/ThemeController";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
-import React from "react";
+import { useGetStaticProps } from "@/hooks/useGetStaticProps";
+
+const Blog_Dark = () => {
+  const { blogPosts } = useGetStaticProps();
+
+  const latestBlog = blogPosts?.[0];
 
   const metadata = {
     title: latestBlog ? `${latestBlog.title} | Blog` : "Blog | Vale.ia asistencia artificial para vender más",
@@ -31,8 +39,7 @@ import React from "react";
         favicon.href = latestBlog.headerImage;
       }
     }, [metadata.title, metadata.description, latestBlog]);
-  
-const Blog_Dark = () => {
+
   return (
     <PageWrapper>
       <main className="is-dark">
