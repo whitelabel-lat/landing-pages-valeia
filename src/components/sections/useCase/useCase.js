@@ -16,7 +16,6 @@ const UseCase = ({ title, subtitle, useCases = [] }) => {
     setDirection(newIndex > activeIndex ? 'right' : 'left');
     setActiveIndex(newIndex);
     
-    // Permitir nueva transición después de que termine la animación
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1000);

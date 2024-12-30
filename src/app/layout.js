@@ -10,7 +10,7 @@ import "swiper/css/effect-cards";
 import "./globals.css";
 import FixedShadow from "@/components/shared/others/FixedShadow";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
-
+import { Suspense } from 'react';
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -26,8 +26,7 @@ export const hind = Hind({
   variable: "--font-hind",
 });
 
-export default function RootLayout({ children }) {
-
+function MainLayout({ children }) {
   const {
     seoTitle,
     seoDescription,
@@ -37,14 +36,13 @@ export default function RootLayout({ children }) {
     excludeLinksFromRankings,
   } = useGetStaticProps();
 
-
   return (
     <html lang="es" className={`${hind.variable}`}>
       <head>
-        <title>{seoTitle}</title>
-       <meta
+        <title>{seoTitle || "Vale.ia asistencia artificial para vender más"}</title>
+        <meta
           name="description"
-          content={seoDescription ||  "Vale.ia asistencia artificial para vender más"}
+          content={seoDescription || "Vale.ia asistencia artificial para vender más"}
         />
         {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
         {featuredImage && (
@@ -56,45 +54,19 @@ export default function RootLayout({ children }) {
         {hideFromSearchEngines && <meta name="robots" content="noindex" />}
         {excludeLinksFromRankings && <meta name="robots" content="nofollow" />}
       </head>
-      <body
-        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
-      >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.fbAsyncInit = function() {
-                FB.init({
-                  appId      : '1721201065327660',
-                  xfbml      : true,
-                  version    : 'v21.0'
-                });
-                FB.AppEvents.logPageView();
-              };
-
-              (function(d, s, id){
-                 var js, fjs = d.getElementsByTagName(s)[0];
-                 if (d.getElementById(id)) {return;}
-                 js = d.createElement(s); js.id = id;
-                 js.src = "https://connect.facebook.net/en_US/sdk.js";
-                 fjs.parentNode.insertBefore(js, fjs);
-               }(document, 'script', 'facebook-jssdk'));
-            `,
-          }}
-        />
-        {children}
-
-        {/* theme fixed shadow */}
-        <div>
-          <FixedShadow />
-          <FixedShadow align={"right"} />
-          <div
-            className="fb-like"
-            data-share="true"
-            data-width="450"
-            data-show-faces="true"
-          ></div>
-        </div>
+      <body className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}>
+        <Suspense fallback={<div>Loading...</div>}>
+          {children}
+          <div>
+            <FixedShadow />
+            <FixedShadow align={"right"} />
+          </div>
+        </Suspense>
       </body>
     </html>
   );
+}
+
+export default function RootLayout({ children }) {
+  return <MainLayout>{children}</MainLayout>;
 }

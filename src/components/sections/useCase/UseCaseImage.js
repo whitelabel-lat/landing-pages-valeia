@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 
 const UseCaseImage = ({ imageUrl, isActive, direction }) => {
-  const [animationState, setAnimationState] = useState('initial'); // 'initial', 'exiting', 'entering'
+  const validImageUrl = typeof imageUrl === 'string' ? imageUrl : '';
+  
+  const [animationState, setAnimationState] = useState('initial');
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -14,7 +16,7 @@ const UseCaseImage = ({ imageUrl, isActive, direction }) => {
       const timer = setTimeout(() => {
         setIsVisible(false);
         setAnimationState('initial');
-      }, 1000); // Duración total de la animación de salida
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [isActive]);
@@ -35,12 +37,13 @@ const UseCaseImage = ({ imageUrl, isActive, direction }) => {
   };
 
   if (!isVisible && animationState === 'initial') return null;
+  if (!validImageUrl) return null; // No renderizar si no hay URL válida
 
   return (
     <div className="absolute inset-0 w-full h-full">
       <img
-        src={imageUrl}
-        alt=""
+        src={validImageUrl}
+        alt="Use case illustration"
         className={`
           absolute inset-0 w-full h-full object-contain rounded-lg shadow-lg
           ${getAnimationClasses()}

@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 
 export function useGetStaticProps() {
   const [data, setData] = useState({
-    seoTitle: "",
-    seoDescription: "",
+    seoTitle: "Vale.ia asistencia artificial para vender más",
+    seoDescription: "Vale.ia asistencia artificial para vender más",
     canonicalUrl: "",
     featuredImage: "",
     hideFromSearchEngines: false,
@@ -17,6 +17,7 @@ export function useGetStaticProps() {
     currentBlog: null,
   });
 
+  const [error, setError] = useState(null);
   const pathname = usePathname();
   const slug = pathname.split('/').pop();
   const isSingleBlog = pathname.startsWith('/blogs/') && slug !== 'blogs';
@@ -24,6 +25,11 @@ export function useGetStaticProps() {
   useEffect(() => {
     async function fetchData() {
       try {
+        if (!process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN) {
+          console.warn('Contentful credentials not found');
+          return;
+        }
+
         const client = createClient({
           space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
           accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
@@ -58,11 +64,21 @@ export function useGetStaticProps() {
           }
         }
 
-        blogEntries = await client.getEntries({
-          content_type: 'blogPost',
-          order: '-sys.createdAt',
-          include: 2
-        });
+        const [blogEntriesResponse, pageEntriesResponse] = await Promise.all([
+          client.getEntries({
+            content_type: 'blogPost',
+            order: '-sys.createdAt',
+            include: 2
+          }),
+          client.getEntries({
+            content_type: 'page',
+            include: 4,
+            'fields.slug': pathname,
+          })
+        ]);
+
+        blogEntries = blogEntriesResponse;
+        const entry = pageEntriesResponse?.items?.[0]?.fields || {};
 
         const allCategories = blogEntries.items.flatMap(post =>
           post.fields.categories?.map(category => ({
@@ -71,20 +87,11 @@ export function useGetStaticProps() {
           })) || []
         );
 
-        // Filtrar categorías únicas por slug
         const uniqueCategories = Array.from(
           new Map(allCategories.map(cat => [cat.slug, cat])).values()
         );
 
-        const pageEntries = await client.getEntries({
-          content_type: 'page',
-          include: 4,
-          'fields.slug': pathname,
-        });
-
-        const entry = pageEntries?.items?.[0]?.fields || [];
-
-        const sectionData = {
+        setData({
           seoTitle: entry.seo?.fields.seoTitle || "Vale.ia asistencia artificial para vender más",
           seoDescription: entry.seo?.fields?.seoDescription || currentBlog?.summary,
           canonicalUrl: entry.seo?.fields?.canonicalUrl || "",
@@ -94,9 +101,7 @@ export function useGetStaticProps() {
           topSections: entry.topSection?.map(section => ({
             fields: section.fields,
             sys: section.sys,
-            
           })) || [],
-          
           blogPosts: blogEntries.items.map(post => ({
             title: post.fields.title,
             slug: post.fields.slug,
@@ -112,15 +117,15 @@ export function useGetStaticProps() {
           })),
           categories: uniqueCategories,
           currentBlog,
-        };
-        setData(sectionData);
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(error);
       }
     }
 
     fetchData();
   }, [pathname, slug, isSingleBlog]);
 
-  return data;
+  return { ...data, error };
 }
