@@ -549,10 +549,7 @@ module.exports = {
         "5px": "5px",
         half: ".5px",
       },
-      // background
-      backgroundImage: {
-        register: "url('../assets/images/register/register__bg.png')",
-      },
+
       // shdow
       boxShadow: {
         dropdown: "0 0 50px 10px rgba(15, 157, 193, 0.1)",

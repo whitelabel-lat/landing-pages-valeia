@@ -48,7 +48,7 @@ const PopularSubjectsValeia = (props) => {
     <section
       className={`${
         isHome9 || isHome9Dark
-          ? "bg-[url(../assets/images/about/about_bg_1.jpg)] bg-cover"
+          ? "bg-cover"
           : "bg-blue-light dark:bg-lightGrey10-dark"
       } pt-50px pb-110px`}
     >
