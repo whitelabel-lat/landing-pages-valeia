@@ -1,8 +1,5 @@
 import AccordionContainer from "@/components/shared/containers/AccordionContainer";
 import AccordionHome2 from "./AccordionHome2";
-
-import AccordionCourses2 from "./AccordionCourses2";
-
 import MobileMenuItem from "./MobileItem";
 import AccordionBlog from "./AccordionBlog";
 import AccordionPages2 from "./AccordionPages2";
@@ -29,13 +26,6 @@ const MobileItems2 = () => {
       path: "/blogs",
       accordion: "accordion",
       children: <AccordionBlog />,
-    },
-    {
-      id: 4,
-      name: "Courses",
-      path: "/courses",
-      accordion: "accordion",
-      children: <AccordionCourses2 />,
     },
 
     {

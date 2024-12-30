@@ -1,6 +1,5 @@
 "use client";
 import { Hind, Inter } from "next/font/google";
-import "@/assets/css/icofont.min.css";
 import "@/assets/css/popup.css";
 import "@/assets/css/video-modal.css";
 import "aos/dist/aos.css";
@@ -9,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-cards";
 import "./globals.css";
-
 import FixedShadow from "@/components/shared/others/FixedShadow";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
 

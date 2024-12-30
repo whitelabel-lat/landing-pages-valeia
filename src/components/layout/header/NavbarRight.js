@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import useIsTrue from "@/hooks/useIsTrue";
-import LoginButton from "./LoginButton";
 import MobileMenuOpen from "@/components/shared/buttons/MobileMenuOpen";
 const NavbarRight = () => {
   const isHome4 = useIsTrue("/home-4");

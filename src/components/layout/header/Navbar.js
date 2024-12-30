@@ -3,7 +3,6 @@ import useIsTrue from "@/hooks/useIsTrue";
 import NavbarLogo from "./NavbarLogo";
 import NavItems2 from "./NavItems2";
 import NavItems from "./NavItems";
-import NavbarTop from "./NavbarTop";
 import NavbarRight from "./NavbarRight";
 
 const Navbar = () => {
@@ -18,8 +17,6 @@ const Navbar = () => {
   const isHome5 = useIsTrue("/home-5");
   const isHome5Dark = useIsTrue("/home-5-dark");
 
-
-  
 
   return (
     <div
@@ -46,11 +43,7 @@ const Navbar = () => {
               : "lg:container 3xl:container-secondary-lg "
           } 4xl:container mx-auto relative`}
         >
-          {isHome4 || isHome4Dark || isHome5 || isHome5Dark ? (
-            <NavbarTop />
-          ) : (
-            ""
-          )}
+
           <div className="grid grid-cols-2 lg:grid-cols-12 items-center gap-15px">
             {/* navbar left */}
             <NavbarLogo/>
