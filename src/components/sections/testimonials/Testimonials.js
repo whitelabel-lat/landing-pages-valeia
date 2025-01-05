@@ -13,7 +13,7 @@ const Testimonials = ({ testimonials = [], title }) => {
         {/* testimonial slider */}
         <div
           className="testimonial -mx-15px relative bg-lightGrey10 dark:bg-lightGrey10-dark"
-          data-aos="fade-up"
+          data-aos="fade-up" 
         >
           {/* Swiper */}
 
