@@ -1,17 +1,19 @@
 "use client";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import Scrollup from "../others/Scrollup";
-import { useAOS } from "@/hooks/useAOS";
+import { initAOS } from "@/utils/initAOS";
 
 const PageWrapper = ({ children }) => {
-  useAOS(); 
+  useEffect(() => {
+    initAOS();
+  }, []);
 
   return (
     <>
       <Header />
-      <Suspense fallback={<div></div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <main>{children}</main>
         <Footer />
         <Scrollup />

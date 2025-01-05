@@ -8,9 +8,6 @@ const Testimonials = ({ testimonials = [], title }) => {
       <div className="container">
         {/* courses Heading */}
         <div className="mb-5 md:mb-10" data-aos="fade-up">
-          {/* <div className="text-center">
-            <SectionName>Course List</SectionName>
-          </div> */}
 
           <HeadingPrimary text="center">{title}</HeadingPrimary>
         </div>
