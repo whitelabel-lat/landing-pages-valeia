@@ -6,7 +6,6 @@ const Testimonials = ({ testimonials = [], title }) => {
   return (
     <section className="bg-lightGrey10 dark:bg-lightGrey10-dark relative py-50px md:py-70px lg:py-20 2xl:pt-100px 2xl:pb-110px">
       <div className="container">
-        {/* courses Heading */}
         <div className="mb-5 md:mb-10" data-aos="fade-up">
 
           <HeadingPrimary text="center">{title}</HeadingPrimary>
