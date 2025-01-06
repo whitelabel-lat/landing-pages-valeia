@@ -5,7 +5,7 @@ const PlanDetails = ({ plan }) => {
             <span className="text-size-58 pr-1">$</span>
             {plan.fields.price}
             <span className="text-size-22 text-contentColor dark:text-contentColor-dark">
-              / month
+                USD/month
             </span>
           </h6>
       <p className="mb-4">{plan.fields.moto}</p>

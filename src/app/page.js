@@ -1,6 +1,7 @@
 import HomeValeia from "@/components/layout/main/HomeValeIa";
 import ThemeController from "@/components/shared/others/ThemeController";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
+import "../assets/css/icofont.min.css";
 
 
 export default function Home() {
