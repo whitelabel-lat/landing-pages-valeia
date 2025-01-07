@@ -7,7 +7,7 @@ const UseCaseCard = ({ data, isActive, onMouseEnter }) => {
   return (
     <div 
       className={`use-case-card p-6 rounded-lg cursor-pointer transition-all duration-500 ${
-        isActive ? 'bg-white shadow-lg' : 'bg-gray-50 hover:bg-gray-100'
+        isActive ? 'bg-white  dark:bg-lightGrey10-dark shadow-lg' : 'bg-gray-50  dark:bg-lightGrey10-dark hover:bg-gray-100'
       }`}
       onMouseEnter={onMouseEnter}
     >
