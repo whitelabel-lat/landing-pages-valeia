@@ -28,22 +28,26 @@ const HeroValeia = (props) => {
         <div>
           <img
             src={fullImageUrl0}
-            className="absolute right-[16%] top-[60%] md:right-[31px] md:top-[70%] lg:right-[16%] lg:top-[60%] animate-move-var z-10"
+            className="absolute left-0 bottom-[-93px] md:left-[30px] lg:left-0"
+            
             alt=""
           />
           <img
             src={fullImageUrl1}
-            className="absolute right-[9%] top-[58%] md:right-[12%] lg:right-[9%] animate-move-hor z-10"
+            className="absolute right-[16%] top-[60%] md:right-[31px] md:top-[70%] lg:right-[16%] lg:top-[60%] animate-move-var z-10"
+            
             alt=""
           />
           <img
             src={fullImageUrl2}
-            className="absolute left-1/2 bottom-[15%] md:left-[4%] lg:left-1/2 animate-spin-slow"
+            className="absolute right-[9%] top-[58%] md:right-[12%] lg:right-[9%] animate-move-hor z-10"
+            
             alt=""
           />
           <img
             src={fullImageUrl3}
-            className="absolute left-[53%] top-[41%] md:left-[9%] md:top-[43%] lg:left-[53%] animate-spin-slow"
+            className="absolute left-1/2 bottom-[15%] md:left-[4%] lg:left-1/2 animate-spin-slow"
+            
             alt=""
           />
         </div>
@@ -76,13 +80,13 @@ const HeroValeia = (props) => {
                   {/* bannar image */}
                   <div className="flex flex-col items-center lg:items-end">
                     <img
-                      className="text-center"
+                    className="absolute left-[53%] top-[41%] md:left-[9%] md:top-[43%] lg:left-[53%] animate-spin-slow"
                       src={fullImageUrl4}
                       alt=""
                       placeholder="blur"
                     />
                     <img
-                      className="absolute left-0 bottom-[-93px] md:left-[30px] lg:left-0"
+                      className="text-center"
                       src={fullImageUrl5}
                       alt=""
                       placeholder="blur"
