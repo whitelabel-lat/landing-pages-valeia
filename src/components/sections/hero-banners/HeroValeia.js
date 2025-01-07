@@ -47,7 +47,10 @@ const HeroValeia = (props) => {
             alt=""
           />
         </div>
-        <div className="container pt-12 lg:pt-130px pb-175px relative">
+        <div 
+  className="container pt-12 lg:pt-100px relative" 
+  style={{ paddingBottom: `${props.pb}px` }}>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 md:gap-15 lg:gap-30px">
             {/* banner Left */}
             <div className="lg:col-start-1 lg:col-span-7" data-aos="fade-up">
