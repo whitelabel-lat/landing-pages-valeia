@@ -10,7 +10,7 @@ export default function Home() {
       <main>
         <HomeValeia />
         <ThemeController />
-        <Script src = "chat-whidget.es.js"></Script>
+        <Script src="chat-widget.es.js" />
       </main>
     </PageWrapper>
   );
