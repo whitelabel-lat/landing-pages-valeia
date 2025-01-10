@@ -9,7 +9,7 @@ const PricingPlan = ({ plans }) => {
   const currentPlan = plans[selectedPlan];
   
   return (
-    <div className="max-w-[600px] mx-auto bg-white dark:bg-whiteColor-dark rounded-3xl p-8 shadow-lg font-poppins h-full transition-colors duration-300">
+    <div className="max-w-[600px] mx-auto bg-white dark:bg-whiteColor-dark  text-blackColor dark:text-whiteColor rounded-3xl p-8 shadow-lg font-poppins h-full transition-colors duration-300">
       <div className="h-full">
         <h2 className="text-2xl font-bold mb-6 text-center text-blackColor dark:text-whiteColor transition-colors duration-300">
           SUBSCRIPCIÓN
