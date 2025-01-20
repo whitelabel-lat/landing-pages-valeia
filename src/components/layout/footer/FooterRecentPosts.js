@@ -66,6 +66,14 @@ const FooterRecentPosts = () => {
               Política de Privacidad y Cookies
             </Link>
           </li>
+          <li>
+            <Link
+              href="/politica-reembolsos"
+              className="text-xl hover:text-primaryColor underline"
+            >
+              Politica de Reembolsos
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

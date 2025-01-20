@@ -10,7 +10,7 @@ import "swiper/css/effect-cards";
 import "./globals.css";
 import FixedShadow from "@/components/shared/others/FixedShadow";
 import { useGetStaticProps } from "@/hooks/useGetStaticProps";
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -39,10 +39,15 @@ function MainLayout({ children }) {
   return (
     <html lang="es" className={`${hind.variable}`}>
       <head>
-        <title>{seoTitle || "Vale.ia asistencia artificial para vender más"}</title>
+        <title>
+          {seoTitle || "Vale.ia – Tu Asistente de Inteligencia Artificial 24/7"}
+        </title>
         <meta
           name="description"
-          content={seoDescription || "Vale.ia asistencia artificial para vender más"}
+          content={
+            seoDescription ||
+            "Automatiza y gestiona grandes volúmenes de mensajes con Vale.ia. Ahorra tiempo, potencia tus ventas y ofrece una mejor experiencia al cliente, 24/7."
+          }
         />
         {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
         {featuredImage && (
@@ -54,7 +59,9 @@ function MainLayout({ children }) {
         {hideFromSearchEngines && <meta name="robots" content="noindex" />}
         {excludeLinksFromRankings && <meta name="robots" content="nofollow" />}
       </head>
-      <body className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}>
+      <body
+        className={`relative leading-[1.8] bg-bodyBg dark:bg-bodyBg-dark z-0 ${inter.className}`}
+      >
         <Suspense fallback={<div>Loading...</div>}>
           {children}
           <div>
